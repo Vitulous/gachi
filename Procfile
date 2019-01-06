@@ -1,1 +1,1 @@
-worker: python reactor.py
+worker: python gachi.py
