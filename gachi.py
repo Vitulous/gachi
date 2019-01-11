@@ -17,7 +17,7 @@ async def on_message(message):
 --ленни
 --гачи
 лолировать не в себя и скобочки ставить''').format(message)
-    if message.content.startswith('--брось'):
+    elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
         nums = list(map(int, nums))
         if 2 > len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
