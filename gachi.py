@@ -8,13 +8,13 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    if message.author == client.user:
+        return
     if message.content.startswith('--красиво'):
         s = ' '.join(message.content[10:])
         msg = s.format(message)
-    if message.author == client.user:
-        return
     message.content = message.content.lower()
-    if message.content.startswith('--помогачи'):
+    elif message.content.startswith('--помогачи'):
         msg = ('''Пока я раздеваюсь, ты можешь:
 --брось x y
 --ленни
