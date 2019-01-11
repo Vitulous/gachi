@@ -13,8 +13,8 @@ async def on_message(message):
     if message.content.startswith('--красиво'):
         s = ' '.join(message.content[10:])
         msg = s.format(message)
-    message.content = message.content.lower()
-    if message.content.startswith('--помогачи'):
+    else: message.content = message.content.lower()
+    elif message.content.startswith('--помогачи'):
         msg = ('''Пока я раздеваюсь, ты можешь:
 --брось x y
 --ленни
