@@ -8,14 +8,18 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
-    message.content = message.content.lower()
+    if message.content.startswith('--красиво'):
+        s = ' '.join(message.content[10:])
+        msg = s.format(message)
     if message.author == client.user:
         return
+    message.content = message.content.lower()
     elif message.content.startswith('--помогачи'):
         msg = ('''Пока я раздеваюсь, ты можешь:
 --брось x y
 --ленни
 --гачи
+--красиво (текст)
 лолировать не в себя и скобочки ставить''').format(message)
     elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
