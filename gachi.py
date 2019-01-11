@@ -11,10 +11,16 @@ async def on_message(message):
     message.content = message.content.lower()
     if message.author == client.user:
         return
+    if message.content.startswith('--помогачи'):
+        msg = ('''Пока я раздеваюсь, ты можешь:
+--брось x y
+--ленни
+--гачи
+лолировать не в себя и скобочки ставить''').format(message)
     if message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
         nums = list(map(int, nums))
-        if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
+        if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100 or len(nums) < 2:
             msg = 'иди нахуй'
         else:
             res = 0
@@ -49,7 +55,9 @@ async def on_message(message):
                 if lel == 1: smil = ')'
                 else: smil = '0'
                 smiltot += smil
-                msg = smiltot.format(message)              
+                msg = smiltot.format(message)   
+    elif message.content.startswith('--'):
+        msg = 'пиши --помогачи, или сосни петуха'.format(message)
     await client.send_message(message.channel, msg)
     
 @client.event
