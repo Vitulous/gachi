@@ -14,7 +14,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     message.content = message.content.lower()
-    elif message.content.startswith('--помогачи'):
+    if message.content.startswith('--помогачи'):
         msg = ('''Пока я раздеваюсь, ты можешь:
 --брось x y
 --ленни
