@@ -15,7 +15,7 @@ async def on_message(message):
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 1)
         if tryit == 1:
-            msg = 'иди нахуй'.format(message)
+            msg = '<@!533708296956280832>, иди нахуй'.format(message)
             await client.send_message(message.channel, msg)
         return
     tmpsg = message.content
