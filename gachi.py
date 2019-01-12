@@ -10,6 +10,8 @@ client = discord.Client()
 async def on_message(message):
     if message.author == client.user:
         return
+    if message.author.id == '533708296956280832'
+        msg = 'ты хуй, а я хороший бот'.format(message)
     tmpsg = message.content
     message.content = message.content.lower()
     if message.content.startswith('--красиво'):
