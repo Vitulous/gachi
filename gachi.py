@@ -11,8 +11,12 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.author.id == '533708296956280832':
-        msg = 'иди нахуй'.format(message)
-        await client.send_message(message.channel, msg)
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 1)
+        if tryit == 1:
+            msg = 'иди нахуй'.format(message)
+            await client.send_message(message.channel, msg)
         return
     tmpsg = message.content
     message.content = message.content.lower()
