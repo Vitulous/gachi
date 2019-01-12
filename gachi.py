@@ -25,7 +25,7 @@ async def on_message(message):
     elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
         nums = list(map(int, nums))
-        if 2 > len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
+        if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
             msg = 'иди нахуй'
         else:
             res = 0
