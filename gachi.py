@@ -18,7 +18,7 @@ async def on_message(message):
             msg = '<@!533708296956280832>, иди нахуй'.format(message)
             await client.send_message(message.channel, msg)
         else:
-            await client.send_file(message.channel, '/ucku.png')
+            await client.send_file(message.channel, './ucku.png')
         return
     tmpsg = message.content
     message.content = message.content.lower()
