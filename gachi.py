@@ -16,6 +16,7 @@ async def on_message(message):
         tryit = random.randint(0, 1)
         if len(message.attachments) > 0 or 'http' in message.content:
             msg = '<@!224599912061468672>, угомони свою хуйню'.format(message)
+            await client.send_message(message.channel, msg)
         else:
             if tryit == 1:
                 msg = '<@!533708296956280832>, иди нахуй'.format(message)
