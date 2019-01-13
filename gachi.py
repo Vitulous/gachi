@@ -24,7 +24,7 @@ async def on_message(message):
             else:
                 msg = 'сходи нахуй, пожалуйста'.format(message)
                 knt = await client.get_user_info(224599912061468672)
-                await client.send_message(knt.PrivateChannel, msg)
+                await client.send_message(knt, msg)
         else:
             if tryit == 1:
                 msg = '<@!533708296956280832>, иди нахуй'.format(message)
