@@ -23,7 +23,7 @@ async def on_message(message):
                 await client.send_message(message.channel, msg)
             else:
                 msg = 'сходи нахуй, пожалуйста'.format(message)
-                await client.send_message(discord.Object(id='224599912061468672'), msg)
+                await client.send_message(client.get_user_info(224599912061468672), msg)
         else:
             if tryit == 1:
                 msg = '<@!533708296956280832>, иди нахуй'.format(message)
