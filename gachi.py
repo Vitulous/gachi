@@ -47,7 +47,7 @@ async def on_message(message):
             s = message.content[9:]
         elif numb < 10:
             s = message.content[8:]
-        for x in range(numb):
+        for x in range(numb-1):
             msg = s.format(message)
             await client.send_message(message.channel, msg)
     elif message.content.startswith('--помогачи'):
