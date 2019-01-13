@@ -37,12 +37,26 @@ async def on_message(message):
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
         msg = s.format(message)
+    elif message.content.startswith('--скажи'):
+        numb = re.search('\d+', message.content).group()
+        numb = int(numb)
+        if numb >= 100:
+            await client.send_message(message.channel, 'иди нахуй')
+            return
+        elif numb > 9:
+            s = message.content[9:]
+        elif numb < 10:
+            s = message.content[8:]
+        for x in range(numb):
+            msg = s.format(message)
+            await client.send_message(message.channel, msg)
     elif message.content.startswith('--помогачи'):
         msg = ('''Пока я раздеваюсь, ты можешь:
---брось x y
+--брось (число) (число)
 --ленни
 --гачи
 --красиво (текст)
+--скажи(число) (текст)
 лолировать не в себя и скобочки ставить''').format(message)
     elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
