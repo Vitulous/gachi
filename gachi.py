@@ -44,9 +44,9 @@ async def on_message(message):
             await client.send_message(message.channel, 'иди нахуй')
             return
         elif numb > 9:
-            s = message.content[9:]
+            s = tpmsg[9:]
         elif numb < 10:
-            s = message.content[8:]
+            s = tpmsg[8:]
         for x in range(numb-1):
             msg = s.format(message)
             await client.send_message(message.channel, msg)
