@@ -10,7 +10,7 @@ client = discord.Client()
 async def on_message(message):
     if message.author == client.user:
         return
-    if message.author.id == '533708296956280832':
+    '''if message.author.id == '533708296956280832':
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 1)
@@ -31,7 +31,7 @@ async def on_message(message):
                 await client.send_message(message.channel, msg)
             else:
                 await client.send_file(message.channel, './ucku.png')
-        return
+        return'''
     tmpsg = message.content
     message.content = message.content.lower()
     if message.content.startswith('--красиво'):
