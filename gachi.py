@@ -43,10 +43,10 @@ async def on_message(message):
         endl = len(listmsg)
         nl = 0
         if 0 < endl < 100: 
-            for i in range(endl-1):
+            for il in range(endl):
                 nl += 1
-                msg = (str(nl) + '. ' + listmsg[i]).format(message)
-                await client.send_message(message.channel, msg)
+                msgl = (str(nl) + '. ' + listmsg[il]).format(message)
+                await client.send_message(message.channel, msgl)
         else: await client.send_message(message.channel, 'иди нахуй')
     elif message.content.startswith('--скажи'):
         numb = re.search('\d+', message.content).group()
