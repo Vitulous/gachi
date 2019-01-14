@@ -43,7 +43,7 @@ async def on_message(message):
         endl = len(listmsg)
         nl = 0
         if 0 < endl < 100: 
-            for i in range(endl):
+            for i in range(endl-1):
                 nl += 1
                 msg = (str(nl) + '. ' + listmsg[i]).format(message)
                 await client.send_message(message.channel, msg)
@@ -68,6 +68,7 @@ async def on_message(message):
 --гачи
 --красиво (текст)
 --скажи(число) (текст)
+--рандом (список)
 лолировать не в себя и скобочки ставить''').format(message)
     elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
