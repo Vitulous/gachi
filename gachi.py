@@ -109,6 +109,10 @@ async def on_message(message):
                 else: smil = '0'
                 smiltot += smil
                 msg = smiltot.format(message)   
+    elif message.content.startswith('--тесо'):
+        msg = random.choice('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth')
+    elif message.content.startswith('--свитор'):
+        msg = random.choice('Ta\'ar', 'Pep\'ar', 'Ract', 'Hot Character', 'Sarcastic Character', 'Song\'ar', 'Jen\'ar', 'Chirikyât\'ar', 'Secret Character', 'Ironic Character', 'Jøs Beroya', 'Eila\'ar', 'Edeeniz', 'Xii-ar', 'Slo\'ar', 'Ren\'ar', 'Pa\'rih\'ar', 'Desc\'ar', 'Lett\'ar', 'Aen\'ar', 'Nae Celos', 'Kûsk\'ar', 'Mort\'ar', 'Nevermo\'ar', 'Vhoer', 'Lora\'ar', 'Ad\'ar', 'Vit\'ar', 'Sit\'ar', 'Quen\'ar')
     elif message.content.startswith('--'):
         msg = 'пиши --помогачи, или сосни петуха'.format(message)
     await client.send_message(message.channel, msg)
