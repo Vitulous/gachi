@@ -37,6 +37,24 @@ async def on_message(message):
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
         msg = s.format(message)
+    elif message.content.startswith('--гениально'):
+        womsg = tmpsg[12:]
+        listmsg = re.sub("[^\w]", " ",  womsg).split()
+        endl = len(listmsg)
+        endl = endl - 1
+        rnx = random.sample(range(0, endl), endl)
+        arbit = endl/2
+        if rnx[0] > arbit:
+            firs = list(listmsg[0])
+            firs[0] = ('**' + firs[0] + '**')
+            listmsg[0] = ''.join(firs)
+        listmsg[rnx[0]] = ('[' + listmsg[rnx[0]] + ']')
+        listmsg[rnx[1]] = (listmsg[rnx[1]] + '_' + listmsg[rnx[1] + 1])
+        listmsg[rnx[1] + 1] = ''
+        if endl > 2 and rnx[2] is not rnx[1] + 1: listmsg[rnx[2]] = ('*' + listmsg[rnx[2]] + '*')
+        if endl > 3: listmsg[rnx[3]] = listmsg[rnx[3]].upper()
+        if endl > 4: listmsg[rnx[4]] = ' '.join(listmsg[rnx[4]])
+        msg = ' '.join(listmsg).format(message)
     elif message.content.startswith('--рандом'):
         listmsg = re.sub("[^\w]", " ",  tmpsg[9:]).split()
         random.shuffle(listmsg)
@@ -67,6 +85,7 @@ async def on_message(message):
 --ленни
 --гачи
 --красиво (текст)
+--гениально (текст)
 --скажи(число) (текст)
 --рандом (список)
 --? (вопрос)
