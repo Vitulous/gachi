@@ -44,7 +44,7 @@ async def on_message(message):
         if endl > 1:
             tryit = random.randint(0, 1)
             rnx = random.sample(range(0, endl), endl)
-            if rnx[0] < endl: 
+            if rnx[0] < endl - 1: 
                 listmsg[rnx[0]] = (listmsg[rnx[0]] + '_' + listmsg[rnx[0] + 1])
                 listmsg[rnx[0] + 1] = ''
             else: listmsg[rnx[0]] = ('[' + listmsg[rnx[0]] + ']')
