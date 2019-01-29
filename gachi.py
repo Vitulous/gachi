@@ -60,6 +60,37 @@ async def on_message(message):
                 listmsg[0] = ''.join(firs)
             msg = ' '.join(listmsg).replace('  ', ' ').format(message)
         else: msg = 'иди нахуй'.format(message)
+    elif message.content.startswith('--радужно'):
+        womsg = tmpsg[10:]
+        listmsg = re.sub("[^\w]", " ",  womsg).split()
+        endl = len(listmsg)
+        if 7 > endl > 1:
+            rnx = random.sample(range(0, endl), endl)
+            listmsg[rnx[0]] = ('''```diff
+-''' + listmsg[rnx[0]] + '''
+```''')
+            if endl > 1:
+                listmsg[rnx[1]] = ('''```CSS
+''' + listmsg[rnx[1]] + '''
+```''')
+            if endl > 2:
+                listmsg[rnx[2]] = ('''```yaml
+''' + listmsg[rnx[2]] + '''
+```''')
+            if endl > 3:
+                listmsg[rnx[3]] = ('''```fix
+''' + listmsg[rnx[3]] + '''
+```''')
+            if endl > 4:
+                listmsg[rnx[4]] = ('''```brainfuck
+''' + listmsg[rnx[4]] + '''
+```''')
+            if endl > 5:
+                listmsg[rnx[5]] = ('''```
+''' + listmsg[rnx[5]] + '''
+```''')
+            msg = ' '.join(listmsg).format(message)
+        else: msg = 'иди нахуй'.format(message)
     elif message.content.startswith('--рандом'):
         listmsg = re.sub("[^\w]", " ",  tmpsg[9:]).split()
         random.shuffle(listmsg)
@@ -91,6 +122,7 @@ async def on_message(message):
 --гачи
 --красиво (текст)
 --гениально (текст)
+--радужно (текст)
 --скажи(число) (текст)
 --рандом (список)
 --? (вопрос)
