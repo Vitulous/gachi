@@ -121,6 +121,20 @@ async def on_message(message):
         if tryit == 1:
             msg = 'лол'.format(message)
         else: return
+    elif 'кек' in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            msg = 'кек'.format(message)
+        else: return
+    elif 'гг' in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            msg = 'гг'.format(message)
+        else: return
     elif ':_1:' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
