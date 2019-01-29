@@ -47,10 +47,13 @@ async def on_message(message):
             if rnx[0] < endl - 1: 
                 listmsg[rnx[0]] = (listmsg[rnx[0]] + '_' + listmsg[rnx[0] + 1])
                 listmsg[rnx[0] + 1] = ''
-            if endl > 1 and rnx[1] is not rnx[0] + 1 and tryit is not 1: listmsg[rnx[1]] = ('[' + listmsg[rnx[1]] + ']')
+            if endl > 1 and rnx[1] is not rnx[0] + 1:
+                if tryit == 1 and rnx[1] == 0: continue
+                else: listmsg[rnx[1]] = ('[' + listmsg[rnx[1]] + ']')
             if endl > 2 and rnx[2] is not rnx[0] + 1 and rnx[2] is not 0: listmsg[rnx[2]] = ('*' + listmsg[rnx[2]] + '*')
             if endl > 3 and rnx[3] is not rnx[0] + 1: listmsg[rnx[3]] = listmsg[rnx[3]].upper()
             if endl > 4 and rnx[4] is not rnx[0] + 1: listmsg[rnx[4]] = ' '.join(listmsg[rnx[4]])
+            if endl > 5 and rnx[5] is not rnx[0] + 1 and rnx[5] is not 0: listmsg[rnx[5]] = ('__' + listmsg[rnx[2]] + '__')    
             if tryit == 1:
                 firs = list(listmsg[0])
                 firs[0] = ('**' + firs[0] + '**')
