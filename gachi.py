@@ -58,7 +58,7 @@ async def on_message(message):
                 firs = list(listmsg[0])
                 firs[0] = ('**' + firs[0] + '**')
                 listmsg[0] = ''.join(firs)
-            msg = ' '.join(listmsg).format(message)
+            msg = ' '.join(listmsg).replace('  ', ' ').format(message)
         else: msg = 'иди нахуй'.format(message)
     elif message.content.startswith('--рандом'):
         listmsg = re.sub("[^\w]", " ",  tmpsg[9:]).split()
