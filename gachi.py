@@ -117,24 +117,24 @@ async def on_message(message):
     elif 'лол' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
-        tryit = random.randint(0, 1)
+        tryit = random.randint(0, 3)
         if tryit == 1:
             msg = 'лол'.format(message)
         else: return
     elif ':_1:' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
-        tryit = random.randint(0, 1)
+        tryit = random.randint(0, 3)
         if tryit == 1:
             msg = '<:_1:526447595157979136>'.format(message)
         else: return
-    elif ')))' in message.content:
+    elif '))' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
         smiltot = ''
-        tryit = random.randint(0, 1)
+        tryit = random.randint(0, 3)
         if tryit == 1:
-            snum = random.randint(5, 20)
+            snum = random.randint(5, 50)
             for x in range(snum):
                 lel = random.randint(0, 1)
                 if lel == 1: smil = ')'
@@ -148,7 +148,7 @@ async def on_message(message):
         charlist = ('Ta\'ar', 'Pep\'ar', 'Ract', 'Hot Character', 'Sarcastic Character', 'Song\'ar', 'Jen\'ar', 'Chirikyât\'ar', 'Secret Character', 'Ironic Character', 'Jøs Beroya', 'Eila\'ar', 'Edeeniz', 'Xii-ar', 'Slo\'ar', 'Ren\'ar', 'Pa\'rih\'ar', 'Desc\'ar', 'Lett\'ar', 'Aen\'ar', 'Nae Celos', 'Kûsk\'ar', 'Mort\'ar', 'Nevermo\'ar', 'Vhoer', 'Lora\'ar', 'Ad\'ar', 'Vit\'ar', 'Sit\'ar', 'Quen\'ar')
         msg = random.choice(charlist).format(message)
     elif message.content.startswith('--?'):
-        ebanswer = ('Бесспорно', 'Предрешено', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется — «да»', 'Вероятнее всего', 'Есть все шансы', 'Знаки говорят — «да»', 'Да', 'Пока не ясно, попробуй снова', 'Спроси позже', 'Лучше не рассказывать', 'Сейчас нельзя предсказать', 'Сконцентрируйся и спроси опять', 'И не надейся', 'Мой ответ — «нет»', 'По моим данным — «нет»', 'Перспективы не очень хорошие', 'Весьма сомнительно')
+        ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у Вита', 'Собери чакру и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
         msg = random.choice(ebanswer).format(message)
     elif message.content.startswith('--'):
         msg = 'пиши --помогачи, или сосни петуха'.format(message)
