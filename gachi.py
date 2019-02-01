@@ -120,6 +120,8 @@ async def on_message(message):
 --брось (число) (число)
 --ленни
 --гачи
+--сыграем
+--какигратьто?
 --красиво (текст)
 --гениально (текст)
 --радужно (текст)
@@ -141,6 +143,33 @@ async def on_message(message):
                 res += die
                 msg = 'Итого: ' + str(res).format(message)
             await client.send_message(message.channel, dice)
+    elif message.content.startswith('--какигратьто?'):
+        msg = ('''Солнце бьет Луну, как Хаширама пиздил Мадару;
+Луна бьет Небо, как Мадара ебет Мито;
+Небо бьет Солнце, как Мито изменяет Хашираме до слез.''').format(message)
+    elif message.content.startswith('--сыграем'):
+        await client.send_message(message.channel, 'Солнце, Небо, Луна')
+        await client.send_message(message.channel, 'Раз..')
+        await client.send_message(message.channel, 'Два..')
+        await client.send_message(message.channel, 'Три!')
+        chmsg = await client.wait_for_message(author=message.author)
+        rantypes = ('Солнце', 'Небо', 'Луна')
+        boch = random.choice(rantypes)
+        eny = 0
+        if boch == 'Солнце': eny = 1
+        elif boch == 'Небо': eny = 2
+        elif boch == 'Луна': eny = 3
+        ply = 0
+        if 'солнце' in chmsg.content: ply = 1
+        elif 'небо' in chmsg.content: ply = 2
+        elif 'луна' in chmsg.content: ply = 3
+        msg = (boch + '!').format(message)
+        await client.send_message(message.channel, msg)
+        await client.send_message(message.channel, '...')
+        if eny == 0 or ply == 0: msg = 'иди нахуй'.format(message)
+        elif eny == ply: msg = 'Ничья!'.format(message)
+        elif eny - ply == 1 or ply - eny == 2: msg = 'Я победил!'.format(message)
+        elif ply - eny == 1 or eny - ply == 2: msg = 'Я проиграл.. В этот раз.'.format(message)
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
     elif message.content.startswith('--гачи'):
