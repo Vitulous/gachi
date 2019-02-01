@@ -160,6 +160,7 @@ async def on_message(message):
         elif boch == 'Небо': eny = 2
         elif boch == 'Луна': eny = 3
         ply = 0
+        chmsg.content = chmsg.content.lower()
         if 'солнце' in chmsg.content: ply = 1
         elif 'небо' in chmsg.content: ply = 2
         elif 'луна' in chmsg.content: ply = 3
