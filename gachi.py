@@ -37,6 +37,7 @@ async def on_message(message):
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
         msg = s.format(message)
+        
     elif message.content.startswith('--гениально'):
         womsg = tmpsg[12:]
         listmsg = re.sub("[^\w]", " ",  womsg).split()
@@ -60,12 +61,14 @@ async def on_message(message):
                 listmsg[0] = ''.join(firs)
             msg = ' '.join(listmsg).replace('  ', ' ').format(message)
         else: msg = 'иди нахуй'.format(message)
+            
     elif message.content.startswith('--радужно'):
         womsg = tmpsg[10:]
+        listmsg = re.sub("[^\w]", " ",  womsg).split()
+        endl = len(listmsg)
         if endl > 1:
             for tim in range(10):
                 listmsg = re.sub("[^\w]", " ",  womsg).split()
-                endl = len(listmsg)
                 msg = ''
                 rnx = random.sample(range(0, endl), endl)
                 lang = ('diff', 'CSS', 'yaml', 'fix', 'brainfuck', '')
@@ -82,6 +85,7 @@ async def on_message(message):
                     await asyncio.sleep(1)
                     await client.edit_message(remsg, msg)
         else: msg = 'иди нахуй'.format(message)
+            
     elif message.content.startswith('--рандом'):
         listmsg = re.sub("[^\w]", " ",  tmpsg[9:]).split()
         random.shuffle(listmsg)
@@ -93,6 +97,7 @@ async def on_message(message):
                 msgl = (str(nl) + '. ' + listmsg[il]).format(message)
                 await client.send_message(message.channel, msgl)
         else: await client.send_message(message.channel, 'иди нахуй')
+            
     elif message.content.startswith('--скажи'):
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
@@ -106,6 +111,7 @@ async def on_message(message):
         for x in range(numb-1):
             msg = s.format(message)
             await client.send_message(message.channel, msg)
+            
     elif message.content.startswith('--помогачи'):
         msg = ('''Пока я раздеваюсь, ты можешь:
 --брось (число) (число)
@@ -119,7 +125,8 @@ async def on_message(message):
 --скажи(число) (текст)
 --рандом (список)
 --? (вопрос)
-лолировать не в себя и скобочки ставить''').format(message)
+лолировать не в себя, кекать, гг и скобочки ставить''').format(message)
+        
     elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
         nums = list(map(int, nums))
@@ -134,10 +141,12 @@ async def on_message(message):
                 res += die
                 msg = 'Итого: ' + str(res).format(message)
             await client.send_message(message.channel, dice)
+            
     elif message.content.startswith('--какигратьто?'):
         msg = ('''Солнце бьет Луну, как Хаширама пиздил Мадару;
 Луна бьет Небо, как Мадара ебет Мито;
 Небо бьет Солнце, как Мито изменяет Хашираме до слез.''').format(message)
+        
     elif message.content.startswith('--сыграем'):
         await client.send_message(message.channel, 'Солнце, Небо, Луна')
         await client.send_message(message.channel, 'Раз..')
@@ -162,11 +171,14 @@ async def on_message(message):
         elif eny == ply: msg = 'Ничья!'.format(message)
         elif eny - ply == 1 or ply - eny == 2: msg = 'Я победил!'.format(message)
         elif ply - eny == 1 or eny - ply == 2: msg = 'Я проиграл.. В этот раз.'.format(message)
+            
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
+        
     elif message.content.startswith('--гачи'):
         gachis = ('DO YOU LIKE WATCHING ME', 'ON THE HOUSE', 'PLAYING WITH FIRE', 'SHE GAVE ME QUITE A SHOW', 'THE SEMEN', 'WHY DON\'T YOU GET FUCKED', 'YOU GET MAD', 'AAAAAAAH', 'ANOTHER VICTIM', 'ASS WE CAN', 'AT LEAST IT SMELLS LIKE IT', 'ATTEEEN-TION', 'BET YOUR ASS', 'BIG SURPRISE', 'COME ON COLLEGE BOY', 'I\'M TAKING THAT ASS', 'LADIES FIRST', 'LASH OF THE SPANKING', 'LIKE EMBARRASSING ME', 'OH MY SHOULDER', 'ONE MORE ROUND', 'PULL UP OUR PANTS', 'SIX HOT LOADS', 'SPANK', 'THAT\'S POWER SON', 'THE OTHER NIGHT', 'THE POINT YOU WANNA BE', 'WHAT THE HELL ARE YOU TWO DOING', 'WORK THAT TOOL', 'YOU CAN GO NOW', 'YOU GOT ME MAD NOW', 'YOU LIKE CHALLENGES', 'YOU LIKE THAT', 'YOU RIPPED MY FUCKING PANTS', 'AN ASS I WOULDN\'T MIND FUCKING', 'I LOVE FIRE', 'IT TURNS ME ON', 'IT\'S A LOAN', 'OH HO HO GANGING UP', 'SO HOW YOU FEELING', 'TWO CAN PLAY IT', 'BOSS OF THIS GYM', 'COME ON', 'FUCK YOU LEATHER MAN', 'GO ANOTHER ROUND', 'JABRONI OUTFIT', 'KNOCKED OUT SOME JABRONI', 'LET\'S GIVE IT A GO', 'SETTLE IT', 'WRONG DOOR', 'IT GETS BIGGER WHEN I PULL', 'OUR DADDY TOLD US', 'RIP THE SKIN', 'SORRY FOR WHAT', 'OH OH AAAH AH', 'THANK YOU SIR', 'YES SIR', 'IT\'S MACABRE!', 'MMMMH', 'RIGHT HAPPY TO', 'SORRY', 'WITHOUT FURTHER INTERRUPTION', 'BOY NEXT DOOR', 'DEEP DARK FANTASIES', 'DO YOU LIKE WHAT YOU SEE', 'DUNGEON MASTER', 'FISTING IS 300', 'FUCK YOU', 'FUCKING CUMMING', 'FUCKYOU', 'FULL MASTER', 'I DON\'T DO ANAL', 'IT\'S BONDAGE, GAY WEBSITE', 'IT\'S SO FUCKING DEEP', 'LUBE IT UP', 'PERFORMANCE ARTIST', 'SHUT THE FUCK UP BOY', 'SLAVES', 'GET YOUR ASS BACK HERE', 'STICK YOUR FINGER', 'SUCTION', 'SWALLOW MY CUM', 'TAKE IT BOY', 'THAT TURNS ME ON', 'THAT\'S AMAZING')
         msg = ('♂' + random.choice(gachis) + '♂').format(message)
+        
     elif 'лол' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -174,6 +186,7 @@ async def on_message(message):
         if tryit == 1:
             msg = 'лол'.format(message)
         else: return
+        
     elif 'кек' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -181,6 +194,7 @@ async def on_message(message):
         if tryit == 1:
             msg = 'кек'.format(message)
         else: return
+        
     elif 'гг' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -188,6 +202,7 @@ async def on_message(message):
         if tryit == 1:
             msg = 'гг'.format(message)
         else: return
+        
     elif ':_1:' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -195,6 +210,7 @@ async def on_message(message):
         if tryit == 1:
             msg = '<:_1:526447595157979136>'.format(message)
         else: return
+        
     elif '))' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -207,18 +223,23 @@ async def on_message(message):
                 if lel == 1: smil = ')'
                 else: smil = '0'
                 smiltot += smil
-                msg = smiltot.format(message)   
+                msg = smiltot.format(message)  
+                
     elif message.content.startswith('--тесо'):
         charlist = ('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth')
         msg = random.choice(charlist).format(message)
+        
     elif message.content.startswith('--свитор'):
         charlist = ('Ta\'ar', 'Pep\'ar', 'Ract', 'Hot Character', 'Sarcastic Character', 'Song\'ar', 'Jen\'ar', 'Chirikyât\'ar', 'Secret Character', 'Ironic Character', 'Jøs Beroya', 'Eila\'ar', 'Edeeniz', 'Xii-ar', 'Slo\'ar', 'Ren\'ar', 'Pa\'rih\'ar', 'Desc\'ar', 'Lett\'ar', 'Aen\'ar', 'Nae Celos', 'Kûsk\'ar', 'Mort\'ar', 'Nevermo\'ar', 'Vhoer', 'Lora\'ar', 'Ad\'ar', 'Vit\'ar', 'Sit\'ar', 'Quen\'ar')
         msg = random.choice(charlist).format(message)
+        
     elif message.content.startswith('--?'):
         ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у Вита', 'Собери чакру и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
         msg = random.choice(ebanswer).format(message)
+        
     elif message.content.startswith('--'):
         msg = 'пиши --помогачи, или сосни петуха'.format(message)
+        
     await client.send_message(message.channel, msg)
     
 @client.event
