@@ -84,6 +84,7 @@ async def on_message(message):
                 else:
                     await asyncio.sleep(1)
                     await client.edit_message(remsg, msg)
+            return
         else: msg = 'иди нахуй'.format(message)
             
     elif message.content.startswith('--рандом'):
