@@ -101,8 +101,19 @@ async def on_message(message):
                 await client.send_message(message.channel, msgl)
         else: await client.send_message(message.channel, 'иди нахуй')
          
-    elif message.content.startswith('--trans'):
+    elif message.content.startswith('--транс'):
         ttext = translator.translate(tmpsg[8:], dest='ru').text
+        msg = ttext.format(message)
+        
+    elif message.content.startswith('--афро'):
+        owo = random.randint(1, 30)
+        uwu = ''
+        for i in range(owo):
+            if i % 2 == 0:
+                now = 'uwu'
+            else: now = 'owo'
+            uwu = uwu + ' ' + now
+        ttext = translator.translate(uwu, dest='ru').text
         msg = ttext.format(message)
         
     elif message.content.startswith('--скажи'):
