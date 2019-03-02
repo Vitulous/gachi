@@ -3,7 +3,9 @@ import random
 import os
 import re
 import asyncio
+from googletrans import Translator
 
+translator = Translator()
 client = discord.Client()
 
 @client.event
@@ -98,7 +100,11 @@ async def on_message(message):
                 msgl = (str(nl) + '. ' + listmsg[il]).format(message)
                 await client.send_message(message.channel, msgl)
         else: await client.send_message(message.channel, 'иди нахуй')
-            
+         
+    elif message.content.startswith('--переведи'):
+        ttext = translator.translate(tpmsg[11:], dest='ru').text
+        msg = ttext.format(message)
+        
     elif message.content.startswith('--скажи'):
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
