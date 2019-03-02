@@ -101,8 +101,8 @@ async def on_message(message):
                 await client.send_message(message.channel, msgl)
         else: await client.send_message(message.channel, 'иди нахуй')
          
-    elif message.content.startswith('--переведи'):
-        ttext = translator.translate(tpmsg[11:], dest='ru').text
+    elif message.content.startswith('--trans'):
+        ttext = translator.translate(tmpsg[8:], dest='ru').text
         msg = ttext.format(message)
         
     elif message.content.startswith('--скажи'):
