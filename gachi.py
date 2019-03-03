@@ -102,7 +102,12 @@ async def on_message(message):
         else: await client.send_message(message.channel, 'иди нахуй')
          
     elif message.content.startswith('--транс'):
-        ttext = translator.translate(tmpsg[8:], dest='ru').text
+        if tmpsg[7] == '(' and tmpsg[10] == ')':
+            langcheck = tmpsg[8] + tmpsg[9]
+            if langcheck in langs:
+                ttext = translator.translate(tmpsg[12:], dest=langcheck).text
+            else: ttext = translator.translate(tmpsg[12:], dest='ru').text
+        else: ttext = translator.translate(tmpsg[8:], dest='ru').text
         msg = ttext.format(message)
         
     elif message.content.startswith('--суп'):
