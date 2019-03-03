@@ -112,6 +112,7 @@ async def on_message(message):
             owo = random.choice(langs)
             ttext = translator.translate(uwu, dest=owo).text
             uwu = ttext
+        ttext = translator.translate(uwu, dest='ru').text
         msg = ttext.format(message)
         
     elif message.content.startswith('--скажи'):
