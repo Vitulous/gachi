@@ -105,15 +105,13 @@ async def on_message(message):
         ttext = translator.translate(tmpsg[8:], dest='ru').text
         msg = ttext.format(message)
         
-    elif message.content.startswith('--афро'):
-        owo = random.randint(1, 30)
-        uwu = ''
-        for i in range(owo):
-            if i % 2 == 0:
-                now = 'uwu'
-            else: now = 'owo'
-            uwu = uwu + ' ' + now
-        ttext = translator.translate(uwu, dest='ru').text
+    elif message.content.startswith('--суп'):
+        langs = ("af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "ny", "zh-cn", "zh-tw", "co", "hr", "cs", "da", "nl", "en", "eo", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hmn", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "km", "ko", "ku", "ky", "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mn", "my", "ne", "no", "ps", "fa", "pl", "pt", "pa", "ro", "ru", "sm", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "te", "th", "tr", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu", "fil", "he")
+        uwu = tmpsg[6:]
+        for i in range (20):
+            owo = random.choice(langs)
+            ttext = translator.translate(uwu, dest=owo).text
+            uwu = ttext
         msg = ttext.format(message)
         
     elif message.content.startswith('--скажи'):
@@ -134,7 +132,7 @@ async def on_message(message):
         msg = ('''Пока я раздеваюсь, ты можешь:
 --брось (число) (число)
 --транс (текст)
---афро
+--суп (текст)
 --ленни
 --гачи
 --сыграем
