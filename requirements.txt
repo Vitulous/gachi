@@ -3,4 +3,4 @@ pip
 asyncio
 requests
 googletrans
-https://github.com/slobdell/heroku-buildpack-python-opencv
+opencv-python-headless
