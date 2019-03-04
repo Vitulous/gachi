@@ -131,6 +131,7 @@ async def on_message(message):
         ret,frame = cap.read()            
         cv2.imwrite("sekkusu.png", frame)
         await client.send_file(message.channel, 'sekkusu.png')
+        return
         
     elif message.content.startswith('--скажи'):
         numb = re.search('\d+', message.content).group()
