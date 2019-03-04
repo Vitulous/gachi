@@ -3,7 +3,9 @@ import random
 import os
 import re
 import asyncio
+import cv2
 from googletrans import Translator
+
 
 translator = Translator()
 langs = ("af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "ny", "zh-cn", "zh-tw", "co", "hr", "cs", "da", "nl", "en", "eo", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hmn", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "km", "ko", "ku", "ky", "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mn", "my", "ne", "no", "ps", "fa", "pl", "pt", "pa", "ro", "ru", "sm", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "te", "th", "tr", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu", "fil", "he")
@@ -120,6 +122,15 @@ async def on_message(message):
             uwu = ttext
         ttext = translator.translate(uwu, dest='ru').text
         msg = ttext.format(message)
+        
+    elif message.content.startswith('--моши'):
+        cap = cv2.VideoCapture('ravu.mp4')
+        raframe = random.randint(1, 144)
+        raframe = raframe * 1000
+        cap.set(cv2.CAP_PROP_POS_MSEC, raframe)
+        ret,frame = cap.read()            
+        cv2.imwrite("sekkusu.png", frame)
+        await client.send_file(message.channel, 'sekkusu.png')
         
     elif message.content.startswith('--скажи'):
         numb = re.search('\d+', message.content).group()
