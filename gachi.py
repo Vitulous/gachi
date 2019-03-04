@@ -123,7 +123,7 @@ async def on_message(message):
         ttext = translator.translate(uwu, dest='ru').text
         msg = ttext.format(message)
         
-    elif message.content.startswith('--моши'):
+    elif message.content.startswith('--сексплз'):
         cap = cv2.VideoCapture('ravu.mp4')
         raframe = random.randint(1, 144)
         raframe = raframe * 1000
@@ -153,6 +153,7 @@ async def on_message(message):
 --суп (текст)
 --ленни
 --гачи
+--сексплз
 --сыграем
 --какигратьто?
 --красиво (текст)
@@ -262,7 +263,7 @@ async def on_message(message):
                 msg = smiltot.format(message)  
                 
     elif message.content.startswith('--тесо'):
-        charlist = ('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth')
+        charlist = ('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth', 'Brontae')
         msg = random.choice(charlist).format(message)
         
     elif message.content.startswith('--свитор'):
