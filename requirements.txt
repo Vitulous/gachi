@@ -3,4 +3,4 @@ pip
 asyncio
 requests
 googletrans
-python-opencv-headless
+opencv-python-headless
