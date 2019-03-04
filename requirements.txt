@@ -3,3 +3,5 @@ pip
 asyncio
 requests
 googletrans
+cv2
+opencv-python
