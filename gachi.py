@@ -132,6 +132,16 @@ async def on_message(message):
         cv2.imwrite("sekkusu.png", frame)
         await client.send_file(message.channel, 'sekkusu.png')
         return
+    
+    elif message.content.startswith('--мсти'):
+        cap = cv2.VideoCapture('whale.mp4')
+        raframe = random.randint(11, 446)
+        raframe = raframe * 1000
+        cap.set(cv2.CAP_PROP_POS_MSEC, raframe)
+        ret,frame = cap.read()            
+        cv2.imwrite("revenge.png", frame)
+        await client.send_file(message.channel, 'revenge.png')
+        return
         
     elif message.content.startswith('--скажи'):
         numb = re.search('\d+', message.content).group()
@@ -155,6 +165,7 @@ async def on_message(message):
 --ленни
 --гачи
 --сексплз
+--мсти
 --сыграем
 --какигратьто?
 --красиво (текст)
