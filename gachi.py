@@ -133,7 +133,7 @@ async def on_message(message):
         await client.send_file(message.channel, 'sekkusu.png')
         return
     
-    elif message.content.startswith('--мсти'):
+    elif message.content.startswith('--отомсти'):
         cap = cv2.VideoCapture('whale.mp4')
         raframe = random.randint(11, 446)
         raframe = raframe * 1000
@@ -165,7 +165,7 @@ async def on_message(message):
 --ленни
 --гачи
 --сексплз
---мсти
+--отомсти
 --сыграем
 --какигратьто?
 --красиво (текст)
