@@ -145,7 +145,7 @@ async def on_message(message):
             else:
                 asyncio.sleep(1)
                 raframe += 1000
-                await client.edit_message(remsg, remsg)
+                await client.edit_message(remsg, new_content=send_file('sekkusu.png'))
         return
     
     elif message.content.startswith('--отомсти'):
