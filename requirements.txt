@@ -4,3 +4,4 @@ asyncio
 requests
 googletrans
 opencv-python-headless
+moviepy
