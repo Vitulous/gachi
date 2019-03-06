@@ -133,6 +133,21 @@ async def on_message(message):
         await client.send_file(message.channel, 'sekkusu.png')
         return
     
+    elif message.content.startswith('--мошимоши'):
+        cap = cv2.VideoCapture('ravu.mp4')
+        raframe = random.randint(1, 134)
+        raframe = raframe * 1000
+        for i in range(10):
+            cap.set(cv2.CAP_PROP_POS_MSEC, raframe)
+            ret,frame = cap.read()            
+            cv2.imwrite("sekkusu.png", frame)
+            if i == 0: remsg = await client.send_file(message.channel, 'sekkusu.png')
+            else:
+                asyncio.sleep(1)
+                raframe += 1000
+                await client.edit_message(remsg, 'sekkusu.png')
+        return
+    
     elif message.content.startswith('--отомсти'):
         cap = cv2.VideoCapture('whale.mp4')
         raframe = random.randint(11, 446)
