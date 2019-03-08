@@ -161,15 +161,15 @@ async def on_message(message):
     elif message.content.startswith('--гиф'):
         yturl = 'https://www.youtube.com/watch?v=' + tmpsg[6:]
         givid = ydl.download([yturl])
-        clip = VideoFileClip('ytvid.mp4')
+        clip = VideoFileClip('ytvid.mp4', target_resolution=(none, 480))
         t_end = int(clip.duration)
         ranend = random.randint(1, t_end)
         ranstart = ranend - 3
         clip = (clip
-        .subclip(ranstart, ranend)
-        .resize(0.4))
+        .subclip(ranstart, ranend))
         clip.write_gif("yt.gif")
         await client.send_file(message.channel, 'yt.gif')
+        os.remove('ytvid.mp4')
         return
         
     elif message.content.startswith('--скажи'):
