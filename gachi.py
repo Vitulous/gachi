@@ -158,7 +158,7 @@ async def on_message(message):
         return
         
     elif message.content.startswith('--гиф'):
-        yturl = 'https://www.youtube.com/watch?v=' + message.content[6:]
+        yturl = 'https://www.youtube.com/watch?v=' + tmpsg[6:]
         givid = ydl.download([yturl])
         clip = VideoFileClip('ytvid.mp4')
         t_end = int(clip.duration)
