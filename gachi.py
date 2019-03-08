@@ -13,7 +13,7 @@ langs = ("af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca",
 
 ydl = youtube_dl.YoutubeDL({'outtmpl': 'ytvid.mp4',
                             'format': '135',
-                            'ignoreerrors': 'True'})
+                            'geo_bypass': 'True'})
 
 client = discord.Client()
 
