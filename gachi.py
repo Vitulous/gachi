@@ -167,8 +167,8 @@ async def on_message(message):
         ranstart = ranend - 3
         clip = (clip
         .subclip(ranstart, ranend)
-        .resize(0.5))
-        clip.write_gif("yt.gif", opt='wu')
+        .resize(0.4))
+        clip.write_gif("yt.gif")
         await client.send_file(message.channel, 'yt.gif')
         return
         
