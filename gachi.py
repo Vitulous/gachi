@@ -12,7 +12,7 @@ translator = Translator()
 langs = ("af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "ny", "zh-cn", "zh-tw", "co", "hr", "cs", "da", "nl", "en", "eo", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hmn", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "km", "ko", "ku", "ky", "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mn", "my", "ne", "no", "ps", "fa", "pl", "pt", "pa", "ro", "ru", "sm", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "te", "th", "tr", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu", "fil", "he")
 
 ydl = youtube_dl.YoutubeDL({'outtmpl': 'ytvid.mp4',
-                            'format': '134'})
+                            'format': '135'})
 
 client = discord.Client()
 
@@ -158,15 +158,23 @@ async def on_message(message):
         return
         
     elif message.content.startswith('--гиф'):
-        yturl = 'https://www.youtube.com/watch?v=' + tmpsg[6:]
+        if tmpsg[5] == '-':
+            ranstart = tmpsg[6] + tmpsg[7] + tmpsg[8]
+            ranstart = int(ranstart)
+            ranend = ranstart + 3
+            turl = tmpsg[10:]
+        else: turl = tmpsg[6:]
+        yturl = 'https://www.youtube.com/watch?v=' + turl
         givid = ydl.download([yturl])
-        clip = VideoFileClip('ytvid.mp4', target_resolution=(None, 480))
-        t_end = int(clip.duration)
-        ranend = random.randint(1, t_end)
-        ranstart = ranend - 3
+        clip = VideoFileClip('ytvid.mp4')
+        if tmpsg[5] is not '-':
+            t_end = int(clip.duration)
+            ranend = random.randint(1, t_end)
+            ranstart = ranend - 3
         clip = (clip
-        .subclip(ranstart, ranend))
-        clip.write_gif("yt.gif", fps=30, fuzz=80)
+        .subclip(ranstart, ranend)
+        .resize(0.5))
+        clip.write_gif("yt.gif", fps=20, program='imageio', opt='nq')
         await client.send_file(message.channel, 'yt.gif')
         os.remove('ytvid.mp4')
         return
