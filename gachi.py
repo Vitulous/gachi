@@ -159,13 +159,14 @@ async def on_message(message):
         
     elif message.content.startswith('--гиф'):
         if tmpsg[5] == '-':
-            ranstart = tmpsg[6] + tmpsg[7] + tmpsg[8]
-            if ' ' in ranstart or tmpsg[9] is not ' ':
+            ranminutes = int(tmpsg[6:8])
+            ranseconds = int(tmpsg[9:11])
+            if ranminutes > 99 or ranseconds > 60 or tmpsg[11] is not ' ':
               await client.send_message(message.channel, 'иди нахуй')
               return
-            ranstart = int(ranstart)
+            ranstart = (ranminutes * 60) + ranseconds
             ranend = ranstart + 3
-            turl = tmpsg[10:]
+            turl = tmpsg[12:]
         else: turl = tmpsg[6:]
         yturl = 'https://www.youtube.com/watch?v=' + turl
         givid = ydl.download([yturl])
