@@ -166,7 +166,7 @@ async def on_message(message):
         ranstart = ranend - 5
         clip = (clip
         .subclip(ranstart, ranend))
-        clip.write_gif("yt.gif", program= 'ImageMagick', opt="OptimizePlus")
+        clip.write_gif("yt.gif", fps=30)
         await client.send_file(message.channel, 'yt.gif')
         os.remove('ytvid.mp4')
         return
