@@ -163,10 +163,10 @@ async def on_message(message):
         clip = VideoFileClip('ytvid.mp4', target_resolution=(None, 480))
         t_end = int(clip.duration)
         ranend = random.randint(1, t_end)
-        ranstart = ranend - 5
+        ranstart = ranend - 3
         clip = (clip
         .subclip(ranstart, ranend))
-        clip.write_gif("yt.gif")
+        clip.write_gif("yt.gif", fps=30)
         await client.send_file(message.channel, 'yt.gif')
         os.remove('ytvid.mp4')
         return
