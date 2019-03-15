@@ -170,8 +170,11 @@ async def on_message(message):
         yturl = 'https://www.youtube.com/watch?v=' + turl
         givid = ydl.download([yturl])
         clip = VideoFileClip('ytvid.mp4')
+        t_end = int(clip.duration)
+        if tmpsg[5] == '-' and ranstart >= t_end:
+            await client.send_message(message.channel, 'иди нахуй')
+            return
         if tmpsg[5] is not '-':
-            t_end = int(clip.duration)
             ranend = random.randint(1, t_end)
             ranstart = ranend - 3
         clip = (clip
