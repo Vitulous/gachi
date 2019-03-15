@@ -160,6 +160,9 @@ async def on_message(message):
     elif message.content.startswith('--гиф'):
         if tmpsg[5] == '-':
             ranstart = tmpsg[6] + tmpsg[7] + tmpsg[8]
+            if ' ' in ranstart or tmpsg[9] is not ' ':
+              await client.send_message(message.channel, 'иди нахуй')
+              return
             ranstart = int(ranstart)
             ranend = ranstart + 3
             turl = tmpsg[10:]
