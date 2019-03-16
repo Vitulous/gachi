@@ -201,7 +201,7 @@ async def on_message(message):
             await client.send_message(message.channel, msg)
             
     elif message.content.startswith('--помогачи'):
-        msg = ('''Пока я раздеваюсь, ты можешь:
+        msg = ('''Ебашь, моряк, такое:
 --брось (число) (число)
 --транс (текст)
 --суп (текст)
@@ -218,7 +218,7 @@ async def on_message(message):
 --скажи(число) (текст)
 --рандом (список)
 --? (вопрос)
-лолировать не в себя, кекать, гг и скобочки ставить''').format(message)
+лол, гг, кек, )))''').format(message)
         
     elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
