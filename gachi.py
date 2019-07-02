@@ -272,6 +272,18 @@ async def on_message(message):
         gachis = ('DO YOU LIKE WATCHING ME', 'ON THE HOUSE', 'PLAYING WITH FIRE', 'SHE GAVE ME QUITE A SHOW', 'THE SEMEN', 'WHY DON\'T YOU GET FUCKED', 'YOU GET MAD', 'AAAAAAAH', 'ANOTHER VICTIM', 'ASS WE CAN', 'AT LEAST IT SMELLS LIKE IT', 'ATTEEEN-TION', 'BET YOUR ASS', 'BIG SURPRISE', 'COME ON COLLEGE BOY', 'I\'M TAKING THAT ASS', 'LADIES FIRST', 'LASH OF THE SPANKING', 'LIKE EMBARRASSING ME', 'OH MY SHOULDER', 'ONE MORE ROUND', 'PULL UP OUR PANTS', 'SIX HOT LOADS', 'SPANK', 'THAT\'S POWER SON', 'THE OTHER NIGHT', 'THE POINT YOU WANNA BE', 'WHAT THE HELL ARE YOU TWO DOING', 'WORK THAT TOOL', 'YOU CAN GO NOW', 'YOU GOT ME MAD NOW', 'YOU LIKE CHALLENGES', 'YOU LIKE THAT', 'YOU RIPPED MY FUCKING PANTS', 'AN ASS I WOULDN\'T MIND FUCKING', 'I LOVE FIRE', 'IT TURNS ME ON', 'IT\'S A LOAN', 'OH HO HO GANGING UP', 'SO HOW YOU FEELING', 'TWO CAN PLAY IT', 'BOSS OF THIS GYM', 'COME ON', 'FUCK YOU LEATHER MAN', 'GO ANOTHER ROUND', 'JABRONI OUTFIT', 'KNOCKED OUT SOME JABRONI', 'LET\'S GIVE IT A GO', 'SETTLE IT', 'WRONG DOOR', 'IT GETS BIGGER WHEN I PULL', 'OUR DADDY TOLD US', 'RIP THE SKIN', 'SORRY FOR WHAT', 'OH OH AAAH AH', 'THANK YOU SIR', 'YES SIR', 'IT\'S MACABRE!', 'MMMMH', 'RIGHT HAPPY TO', 'SORRY', 'WITHOUT FURTHER INTERRUPTION', 'BOY NEXT DOOR', 'DEEP DARK FANTASIES', 'DO YOU LIKE WHAT YOU SEE', 'DUNGEON MASTER', 'FISTING IS 300', 'FUCK YOU', 'FUCKING CUMMING', 'FUCKYOU', 'FULL MASTER', 'I DON\'T DO ANAL', 'IT\'S BONDAGE, GAY WEBSITE', 'IT\'S SO FUCKING DEEP', 'LUBE IT UP', 'PERFORMANCE ARTIST', 'SHUT THE FUCK UP BOY', 'SLAVES', 'GET YOUR ASS BACK HERE', 'STICK YOUR FINGER', 'SUCTION', 'SWALLOW MY CUM', 'TAKE IT BOY', 'THAT TURNS ME ON', 'THAT\'S AMAZING')
         msg = ('♂' + random.choice(gachis) + '♂').format(message)
         
+    elif message.content.startswith('--тесо'):
+        charlist = ('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth', 'Brontae', 'Minerva Mossmire', 'Helvenel', 'Tysdagr')
+        msg = random.choice(charlist).format(message)
+        
+    elif message.content.startswith('--свитор'):
+        charlist = ('Ta\'ar', 'Pep\'ar', 'Ract', 'Hot Character', 'Sarcastic Character', 'Song\'ar', 'Jen\'ar', 'Chirikyât\'ar', 'Secret Character', 'Ironic Character', 'Jøs Beroya', 'Eila\'ar', 'Edeeniz', 'Xii-ar', 'Slo\'ar', 'Ren\'ar', 'Pa\'rih\'ar', 'Desc\'ar', 'Lett\'ar', 'Aen\'ar', 'Nae Celos', 'Kûsk\'ar', 'Mort\'ar', 'Nevermo\'ar', 'Vhoer', 'Lora\'ar', 'Ad\'ar', 'Vit\'ar', 'Sit\'ar', 'Quen\'ar')
+        msg = random.choice(charlist).format(message)
+        
+    elif message.content.startswith('--?'):
+        ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у Вита', 'Собери чакру и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
+        msg = random.choice(ebanswer).format(message)
+        
     elif 'лол' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -333,19 +345,7 @@ async def on_message(message):
                 else: smil = '0'
                 smiltot += smil
                 msg = smiltot.format(message)  
-                
-    elif message.content.startswith('--тесо'):
-        charlist = ('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth', 'Brontae', 'Minerva Mossmire', 'Helvenel', 'Tysdagr')
-        msg = random.choice(charlist).format(message)
-        
-    elif message.content.startswith('--свитор'):
-        charlist = ('Ta\'ar', 'Pep\'ar', 'Ract', 'Hot Character', 'Sarcastic Character', 'Song\'ar', 'Jen\'ar', 'Chirikyât\'ar', 'Secret Character', 'Ironic Character', 'Jøs Beroya', 'Eila\'ar', 'Edeeniz', 'Xii-ar', 'Slo\'ar', 'Ren\'ar', 'Pa\'rih\'ar', 'Desc\'ar', 'Lett\'ar', 'Aen\'ar', 'Nae Celos', 'Kûsk\'ar', 'Mort\'ar', 'Nevermo\'ar', 'Vhoer', 'Lora\'ar', 'Ad\'ar', 'Vit\'ar', 'Sit\'ar', 'Quen\'ar')
-        msg = random.choice(charlist).format(message)
-        
-    elif message.content.startswith('--?'):
-        ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у Вита', 'Собери чакру и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
-        msg = random.choice(ebanswer).format(message)
-        
+               
     elif message.content.startswith('--'):
         msg = 'пиши --помогачи, или сосни петуха'.format(message)
         
