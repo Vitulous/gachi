@@ -296,6 +296,22 @@ async def on_message(message):
             msg = 'гг'.format(message)
         else: return
         
+    elif 'точно' in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            msg = 'Точно'.format(message)
+        else: return
+        
+    elif 'высш' in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            msg = ('<@' + str(message.author.id) + '>, те ебало набить додик?').format(message)
+        else: return
+        
     elif ':_1:' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -319,7 +335,7 @@ async def on_message(message):
                 msg = smiltot.format(message)  
                 
     elif message.content.startswith('--тесо'):
-        charlist = ('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth', 'Brontae')
+        charlist = ('Eldenheart', 'Likes-The-Pain', 'Atesmerius', 'Sekhautet', 'Ulenrel', 'Atete', 'Urjackar', 'Alaceth', 'Brontae', 'Minerva Mossmire', 'Helvenel', 'Tysdagr')
         msg = random.choice(charlist).format(message)
         
     elif message.content.startswith('--свитор'):
