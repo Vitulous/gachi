@@ -6,4 +6,3 @@ googletrans
 opencv-python-headless
 moviepy
 ffmpeg
-youtube-dl-server
