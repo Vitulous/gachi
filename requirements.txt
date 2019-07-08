@@ -6,4 +6,4 @@ googletrans
 opencv-python-headless
 moviepy
 ffmpeg
-youtube-dl-server
+youtube-dl==2019.7.2
