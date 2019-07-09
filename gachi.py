@@ -5,6 +5,7 @@ import re
 import asyncio
 import cv2
 from googletrans import Translator
+from google_images_download import google_images_download 
 from moviepy.editor import *
 import youtube_dl
 
@@ -186,6 +187,16 @@ async def on_message(message):
         os.remove('ytvid.mp4')
         return
         
+    elif message.content.startswith('--ищи'):
+        imkey = tmpsg[6:]
+        arguments = {"keywords":imkey,"limit":1} 
+        paths = response.download(arguments)
+        path = paths[0]
+        path = path[imkey]
+        path = ''.join(path)
+        await client.send_file(message.channel, path)
+        return
+        
     elif message.content.startswith('--скажи'):
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
@@ -197,6 +208,7 @@ async def on_message(message):
         elif numb < 10:
             s = tmpsg[8:]
         for x in range(numb-1):
+            await asyncio.sleep(1)
             msg = s.format(message)
             await client.send_message(message.channel, msg)
             
