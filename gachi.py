@@ -190,7 +190,7 @@ async def on_message(message):
         return
         
     elif message.content.startswith('--ищи'):
-        imkey = tmpsg[6:]
+        imkey = tmpsg[6:].replace(",", " ")
         arguments = {"keywords":imkey,"limit":1} 
         paths = response.download(arguments)
         path = paths[0]
@@ -224,6 +224,7 @@ async def on_message(message):
 --сексплз
 --отомсти
 --гиф (айди видео, только ютуб) или --гиф-хх-xx (айди), где хх-xx - время в минутах и секундах (например 00-01)
+--ищи (текст)
 --сыграем
 --какигратьто?
 --красиво (текст)
