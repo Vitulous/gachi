@@ -384,9 +384,10 @@ async def on_message(message):
                
     elif message.content.startswith('--'):
         msg = 'пиши --помогачи, или сосни петуха'.format(message)
-
+        
     if '--ответь' in message.content:
       if message.author.id == '314363965125820417':
+        answer = 1
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
         if numb >= 49:
