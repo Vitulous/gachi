@@ -393,12 +393,13 @@ async def on_message(message):
         if numb >= 49:
             await client.send_message(message.channel, 'иди нахуй')
             return
-        else: answer == numb
-      else: msg = 'иди нахуй'.format(message)
-    else: answer = 1  
-    for nigh in range(answer):
-      asyncio.sleep(1)
-      await client.send_message(message.channel, msg)
+        else:
+          answer == numb
+          for nigh in range(answer):
+            asyncio.sleep(1)
+            await client.send_message(message.channel, msg)
+          return
+    await client.send_message(message.channel, msg)
     
 @client.event
 async def on_ready():
