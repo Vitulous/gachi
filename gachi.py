@@ -21,6 +21,8 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    tmpsg = message.content
+    message.content = message.content.lower()
     if message.content.startswith('--скажи'):
       if message.author.id == '314363965125820417':
         numb = re.search('\d+', message.content).group()
@@ -61,8 +63,6 @@ async def on_message(message):
             else:
                 await client.send_file(message.channel, './ucku.png')
         return'''
-    tmpsg = message.content
-    message.content = message.content.lower()
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
         msg = s.format(message)
