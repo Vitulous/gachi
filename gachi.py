@@ -397,8 +397,8 @@ async def on_message(message):
       else: msg = 'иди нахуй'.format(message)
         
     for nigh in range(answer):
-        nigh += nigh
-        await client.send_message(message.channel, msg)
+      asyncio.sleep(1)
+      await client.send_message(message.channel, msg)
     
 @client.event
 async def on_ready():
