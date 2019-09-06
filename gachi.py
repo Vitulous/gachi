@@ -23,7 +23,6 @@ client = discord.Client()
 async def on_message(message):
     tmpsg = message.content
     message.content = message.content.lower()
-    answer = 1
     if message.content.startswith('--скажи'):
       if message.author.id == '314363965125820417':
         numb = re.search('\d+', message.content).group()
@@ -395,7 +394,7 @@ async def on_message(message):
             return
         else: answer == numb
       else: msg = 'иди нахуй'.format(message)
-        
+    else: answer = 1  
     for nigh in range(answer):
       asyncio.sleep(1)
       await client.send_message(message.channel, msg)
