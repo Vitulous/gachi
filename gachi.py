@@ -309,7 +309,7 @@ async def on_message(message):
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
 
-    if '--ответь' in message.content:
+    elif '--ответь' in message.content:
       if message.author.id == '314363965125820417':
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
