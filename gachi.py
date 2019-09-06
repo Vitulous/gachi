@@ -388,7 +388,7 @@ async def on_message(message):
 
     if '--ответь' in message.content:
       if message.author.id == '314363965125820417':
-        numb = re.search('\d+', message.content).group()
+        numb = re.search('\d+', message.content)
         numb = int(numb)
         if numb >= 49:
             await client.send_message(message.channel, 'иди нахуй')
