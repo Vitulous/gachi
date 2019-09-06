@@ -308,16 +308,6 @@ async def on_message(message):
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
-
-    elif '--ответь' in message.content:
-      if message.author.id == '314363965125820417':
-        numb = re.search('\d+', message.content).group()
-        numb = int(numb)
-        if numb >= 49:
-            await client.send_message(message.channel, 'иди нахуй')
-            return
-        else: answer == numb
-      else: msg = 'иди нахуй'.format(message)
                 
     elif message.author == client.user:
         return
@@ -395,6 +385,16 @@ async def on_message(message):
                
     elif message.content.startswith('--'):
         msg = 'пиши --помогачи, или сосни петуха'.format(message)
+
+    if '--ответь' in message.content:
+      if message.author.id == '314363965125820417':
+        numb = re.search('\d+', message.content).group()
+        numb = int(numb)
+        if numb >= 49:
+            await client.send_message(message.channel, 'иди нахуй')
+            return
+        else: answer == numb
+      else: msg = 'иди нахуй'.format(message)
         
     for x in range(answer):
         await client.send_message(message.channel, msg)
