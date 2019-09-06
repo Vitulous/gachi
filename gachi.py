@@ -398,6 +398,8 @@ async def on_message(message):
           for nigh in range(answer):
             asyncio.sleep(1)
             await client.send_message(message.channel, msg)
+            await client.send_message(message.channel, ('numb = ', numb))
+            await client.send_message(message.channel, ('answer = ', answer))
           return
     await client.send_message(message.channel, msg)
     
