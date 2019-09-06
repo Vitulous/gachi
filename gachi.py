@@ -22,7 +22,7 @@ client = discord.Client()
 @client.event
 async def on_message(message):
     if message.content.startswith('--скажи'):
-      if message.author.id = '314363965125820417':
+      if message.author.id == '314363965125820417':
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
         if numb >= 49:
