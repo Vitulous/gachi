@@ -47,7 +47,7 @@ async def on_message(message):
         if numb >= 49:
             await client.send_message(message.channel, 'иди нахуй')
             return
-        else answer == numb
+        else: answer == numb
       else: msg = 'иди нахуй'.format(message)
     '''if message.author.id == '533708296956280832':
         slowpoke = random.randint(1, 10)
