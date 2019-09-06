@@ -22,6 +22,7 @@ client = discord.Client()
 @client.event
 async def on_message(message):
     if message.content.startswith('--скажи'):
+      if message.author.id = '314363965125820417':
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
         if numb >= 49:
@@ -35,6 +36,7 @@ async def on_message(message):
             await asyncio.sleep(1)
             msg = s.format(message)
             await client.send_message(message.channel, msg)
+      else: msg = 'иди нахуй'.format(message)
     if message.author == client.user:
         return
     '''if message.author.id == '533708296956280832':
