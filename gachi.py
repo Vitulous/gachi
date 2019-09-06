@@ -21,6 +21,20 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    if message.content.startswith('--скажи'):
+        numb = re.search('\d+', message.content).group()
+        numb = int(numb)
+        if numb >= 49:
+            await client.send_message(message.channel, 'иди нахуй')
+            return
+        elif numb > 9:
+            s = tmpsg[9:]
+        elif numb < 10:
+            s = tmpsg[8:]
+        for x in range(numb-1):
+            await asyncio.sleep(1)
+            msg = s.format(message)
+            await client.send_message(message.channel, msg)
     if message.author == client.user:
         return
     '''if message.author.id == '533708296956280832':
@@ -198,21 +212,6 @@ async def on_message(message):
         path = ''.join(path)
         await client.send_file(message.channel, path)
         return
-        
-    elif message.content.startswith('--скажи'):
-        numb = re.search('\d+', message.content).group()
-        numb = int(numb)
-        if numb >= 100:
-            await client.send_message(message.channel, 'иди нахуй')
-            return
-        elif numb > 9:
-            s = tmpsg[9:]
-        elif numb < 10:
-            s = tmpsg[8:]
-        for x in range(numb-1):
-            await asyncio.sleep(1)
-            msg = s.format(message)
-            await client.send_message(message.channel, msg)
             
     elif message.content.startswith('--помогачи'):
         msg = ('''Ебашь, моряк, такое:
@@ -283,6 +282,9 @@ async def on_message(message):
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
         
+    elif message.content.startswith('--хара'):
+        msg = '<@224599912061468672>, соси хуй'.format(message)
+        
     elif message.content.startswith('--гачи'):
         gachis = ('DO YOU LIKE WATCHING ME', 'ON THE HOUSE', 'PLAYING WITH FIRE', 'SHE GAVE ME QUITE A SHOW', 'THE SEMEN', 'WHY DON\'T YOU GET FUCKED', 'YOU GET MAD', 'AAAAAAAH', 'ANOTHER VICTIM', 'ASS WE CAN', 'AT LEAST IT SMELLS LIKE IT', 'ATTEEEN-TION', 'BET YOUR ASS', 'BIG SURPRISE', 'COME ON COLLEGE BOY', 'I\'M TAKING THAT ASS', 'LADIES FIRST', 'LASH OF THE SPANKING', 'LIKE EMBARRASSING ME', 'OH MY SHOULDER', 'ONE MORE ROUND', 'PULL UP OUR PANTS', 'SIX HOT LOADS', 'SPANK', 'THAT\'S POWER SON', 'THE OTHER NIGHT', 'THE POINT YOU WANNA BE', 'WHAT THE HELL ARE YOU TWO DOING', 'WORK THAT TOOL', 'YOU CAN GO NOW', 'YOU GOT ME MAD NOW', 'YOU LIKE CHALLENGES', 'YOU LIKE THAT', 'YOU RIPPED MY FUCKING PANTS', 'AN ASS I WOULDN\'T MIND FUCKING', 'I LOVE FIRE', 'IT TURNS ME ON', 'IT\'S A LOAN', 'OH HO HO GANGING UP', 'SO HOW YOU FEELING', 'TWO CAN PLAY IT', 'BOSS OF THIS GYM', 'COME ON', 'FUCK YOU LEATHER MAN', 'GO ANOTHER ROUND', 'JABRONI OUTFIT', 'KNOCKED OUT SOME JABRONI', 'LET\'S GIVE IT A GO', 'SETTLE IT', 'WRONG DOOR', 'IT GETS BIGGER WHEN I PULL', 'OUR DADDY TOLD US', 'RIP THE SKIN', 'SORRY FOR WHAT', 'OH OH AAAH AH', 'THANK YOU SIR', 'YES SIR', 'IT\'S MACABRE!', 'MMMMH', 'RIGHT HAPPY TO', 'SORRY', 'WITHOUT FURTHER INTERRUPTION', 'BOY NEXT DOOR', 'DEEP DARK FANTASIES', 'DO YOU LIKE WHAT YOU SEE', 'DUNGEON MASTER', 'FISTING IS 300', 'FUCK YOU', 'FUCKING CUMMING', 'FUCKYOU', 'FULL MASTER', 'I DON\'T DO ANAL', 'IT\'S BONDAGE, GAY WEBSITE', 'IT\'S SO FUCKING DEEP', 'LUBE IT UP', 'PERFORMANCE ARTIST', 'SHUT THE FUCK UP BOY', 'SLAVES', 'GET YOUR ASS BACK HERE', 'STICK YOUR FINGER', 'SUCTION', 'SWALLOW MY CUM', 'TAKE IT BOY', 'THAT TURNS ME ON', 'THAT\'S AMAZING')
         msg = ('♂' + random.choice(gachis) + '♂').format(message)
@@ -352,6 +354,15 @@ async def on_message(message):
         if tryit == 1:
             msg = '<:_1:526447595157979136>'.format(message)
         else: return
+        
+    elif '3540_Aqua_cry' in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            msg = '<:2179_SlyTom:612264333107265559>'.format(message)
+        else: return
+        
         
     elif '))' in message.content:
         slowpoke = random.randint(1, 10)
