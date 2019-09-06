@@ -23,6 +23,7 @@ client = discord.Client()
 async def on_message(message):
     tmpsg = message.content
     message.content = message.content.lower()
+    answer = 1
     if message.content.startswith('--скажи'):
       if message.author.id == '314363965125820417':
         numb = re.search('\d+', message.content).group()
@@ -38,6 +39,15 @@ async def on_message(message):
             await asyncio.sleep(1)
             msg = s.format(message)
             await client.send_message(message.channel, msg)
+      else: msg = 'иди нахуй'.format(message)
+    if message.content.startswith('--ответь'):
+      if message.author.id == '314363965125820417':
+        numb = re.search('\d+', message.content).group()
+        numb = int(numb)
+        if numb >= 49:
+            await client.send_message(message.channel, 'иди нахуй')
+            return
+        else answer = numb
       else: msg = 'иди нахуй'.format(message)
     '''if message.author.id == '533708296956280832':
         slowpoke = random.randint(1, 10)
@@ -384,7 +394,8 @@ async def on_message(message):
     elif message.content.startswith('--'):
         msg = 'пиши --помогачи, или сосни петуха'.format(message)
         
-    await client.send_message(message.channel, msg)
+    for x in range(answer):
+        await client.send_message(message.channel, msg)
     
 @client.event
 async def on_ready():
