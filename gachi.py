@@ -40,15 +40,7 @@ async def on_message(message):
             msg = s.format(message)
             await client.send_message(message.channel, msg)
       else: msg = 'иди нахуй'.format(message)
-    if '--ответь' in message.content:
-      if message.author.id == '314363965125820417':
-        numb = re.search('\d+', message.content).group()
-        numb = int(numb)
-        if numb >= 49:
-            await client.send_message(message.channel, 'иди нахуй')
-            return
-        else: answer == numb
-      else: msg = 'иди нахуй'.format(message)
+
     '''if message.author.id == '533708296956280832':
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -316,6 +308,16 @@ async def on_message(message):
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
+
+    if '--ответь' in message.content:
+      if message.author.id == '314363965125820417':
+        numb = re.search('\d+', message.content).group()
+        numb = int(numb)
+        if numb >= 49:
+            await client.send_message(message.channel, 'иди нахуй')
+            return
+        else: answer == numb
+      else: msg = 'иди нахуй'.format(message)
                 
     elif message.author == client.user:
         return
