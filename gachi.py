@@ -39,8 +39,6 @@ async def on_message(message):
             msg = s.format(message)
             await client.send_message(message.channel, msg)
       else: msg = 'иди нахуй'.format(message)
-    if message.author == client.user:
-        return
     '''if message.author.id == '533708296956280832':
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -308,7 +306,10 @@ async def on_message(message):
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
-        
+                
+    if message.author == client.user:
+        return
+      
     elif 'лол' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
