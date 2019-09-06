@@ -299,6 +299,12 @@ async def on_message(message):
         ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у Вита', 'Собери чакру и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
         msg = random.choice(ebanswer).format(message)
         
+    elif message.content.startswith('--пидор'):
+            if len(message.mentions) > 0:
+                msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
+            else:                   
+                msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
+        
     elif 'лол' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
