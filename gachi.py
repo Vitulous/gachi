@@ -40,7 +40,7 @@ async def on_message(message):
             msg = s.format(message)
             await client.send_message(message.channel, msg)
       else: msg = 'иди нахуй'.format(message)
-    if message.content.startswith('--ответь'):
+    elif '--ответь' in message.content:
       if message.author.id == '314363965125820417':
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
