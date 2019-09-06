@@ -394,7 +394,7 @@ async def on_message(message):
             await client.send_message(message.channel, 'иди нахуй')
             return
         else:
-          answer == numb
+          answer = numb
           for nigh in range(answer):
             asyncio.sleep(1)
             await client.send_message(message.channel, msg)
