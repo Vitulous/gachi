@@ -307,7 +307,7 @@ async def on_message(message):
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
                 
-    if message.author == client.user:
+    elif message.author == client.user:
         return
       
     elif 'лол' in message.content:
