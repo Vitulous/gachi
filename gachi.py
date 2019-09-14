@@ -205,14 +205,26 @@ async def on_message(message):
         return
         
     elif message.content.startswith('--ищи'):
+      if tmpsg[5] == '-':
+        if tmpsg[6:9] == 'суп':
+          uwu = tmpsg[6:]
+          for i in range (10):
+              owo = random.choice(langs)
+              ttext = translator.translate(uwu, dest=owo).text
+              uwu = ttext
+          ttext = translator.translate(uwu, dest='ru').text
+          imkey = ttext.replace(",", " ")
+        elif tmpsg[6:11] == 'транс':
+          imkey = translator.translate(tmpsg[11:], dest='ru').text
+      else:
         imkey = tmpsg[6:].replace(",", " ")
-        arguments = {"keywords":imkey,"limit":1} 
-        paths = response.download(arguments)
-        path = paths[0]
-        path = path[imkey]
-        path = ''.join(path)
-        await client.send_file(message.channel, path)
-        return
+      arguments = {"keywords":imkey,"limit":1} 
+      paths = response.download(arguments)
+      path = paths[0]
+      path = path[imkey]
+      path = ''.join(path)
+      await client.send_file(message.channel, path)
+      return
             
     elif message.content.startswith('--втф'):
         uwu = tmpsg[6:]
