@@ -217,7 +217,7 @@ async def on_message(message):
           msg = ('||' + imkey + '||').format(message)
           await client.send_message(message.channel, msg)
         elif tmpsg[6:11] == 'транс':
-          imkey = translator.translate(tmpsg[11:], dest='ru').text
+          imkey = translator.translate(tmpsg[11:], dest='en').text
           msg = ('||' + imkey + '||').format(message)
           await client.send_message(message.channel, msg)
       else:
@@ -230,22 +230,6 @@ async def on_message(message):
       await client.send_file(message.channel, path)
       return
             
-    elif message.content.startswith('--втф'):
-        uwu = tmpsg[6:]
-        for i in range (10):
-            owo = random.choice(langs)
-            ttext = translator.translate(uwu, dest=owo).text
-            uwu = ttext
-        ttext = translator.translate(uwu, dest='ru').text
-        imkey = ttext.replace(",", " ")
-        arguments = {"keywords":imkey,"limit":1} 
-        paths = response.download(arguments)
-        path = paths[0]
-        path = path[imkey]
-        path = ''.join(path)
-        await client.send_file(message.channel, path)
-        return
-        
     elif message.content.startswith('--помогачи'):
         msg = ('''Ебашь, моряк, такое:
 --брось (число) (число)
@@ -257,6 +241,8 @@ async def on_message(message):
 --отомсти
 --гиф (айди видео, только ютуб) или --гиф-хх-xx (айди), где хх-xx - время в минутах и секундах (например 00-01)
 --ищи (текст)
+  --ищи-суп (текст)
+  --ищи-транс(текст)
 --сыграем
 --какигратьто?
 --красиво (текст)
