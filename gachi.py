@@ -205,6 +205,8 @@ async def on_message(message):
         return
         
     elif message.content.startswith('--ищи'):
+      if len(tmpsg) > 40:
+        await client.send_message(message.channel, 'иди нахуй')
       if tmpsg[5] == '-':
         if tmpsg[6:9] == 'суп':
           uwu = tmpsg[6:]
