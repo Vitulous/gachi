@@ -214,8 +214,12 @@ async def on_message(message):
               uwu = ttext
           ttext = translator.translate(uwu, dest='ru').text
           imkey = ttext.replace(",", " ")
+          msg = ('||' + imkey + '||').format(message)
+          await client.send_message(message.channel, msg)
         elif tmpsg[6:11] == 'транс':
           imkey = translator.translate(tmpsg[11:], dest='ru').text
+          msg = ('||' + imkey + '||').format(message)
+          await client.send_message(message.channel, msg)
       else:
         imkey = tmpsg[6:].replace(",", " ")
       arguments = {"keywords":imkey,"limit":1} 
