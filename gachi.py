@@ -38,9 +38,10 @@ async def on_message(message):
             await asyncio.sleep(1)
             msg = s.format(message)
             await client.send_message(message.channel, msg)
+        return
       else: msg = 'иди нахуй'.format(message)
 
-    '''if message.author.id == '533708296956280832':
+    if message.author.id == '533708296956280832':
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 1)
@@ -61,7 +62,7 @@ async def on_message(message):
                 await client.send_message(message.channel, msg)
             else:
                 await client.send_file(message.channel, './ucku.png')
-        return'''
+        return
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
         msg = s.format(message)
