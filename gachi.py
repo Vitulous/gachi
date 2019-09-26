@@ -65,7 +65,7 @@ async def on_message(message):
         return'''
     
     
-    elif message.content.startswith('--красиво'):
+    if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
         msg = s.format(message)
         
