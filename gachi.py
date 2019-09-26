@@ -64,6 +64,12 @@ async def on_message(message):
                 await client.send_file(message.channel, './ucku.png')
         return'''
     
+        '''elif message.content.startswith('--пидор'):
+            if len(message.mentions) > 0:
+                msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
+            else:                   
+                msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)'''
+    
     
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
@@ -325,12 +331,6 @@ async def on_message(message):
     elif message.content.startswith('--?'):
         ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у Вита', 'Собери чакру и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
         msg = random.choice(ebanswer).format(message)
-        
-    '''elif message.content.startswith('--пидор'):
-            if len(message.mentions) > 0:
-                msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
-            else:                   
-                msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)'''
                 
     elif message.author == client.user:
         return
