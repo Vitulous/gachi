@@ -64,13 +64,6 @@ async def on_message(message):
                 await client.send_file(message.channel, './ucku.png')
         return'''
     
-        '''elif message.content.startswith('--пидор'):
-            if len(message.mentions) > 0:
-                msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
-            else:                   
-                msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)'''
-    
-    
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
         msg = s.format(message)
