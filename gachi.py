@@ -376,12 +376,12 @@ async def on_message(message):
             msg = '<:_1:526447595157979136>'.format(message)
         else: return
         
-    elif ':3540_Aqua_cry:' in message.content:
+    elif 'хд' or ':д' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 3)
         if tryit == 1:
-            msg = '<:2179_SlyTom:612264333107265559>'.format(message)
+            msg = 'бывает :д'.format(message)
         else: return
         
         
