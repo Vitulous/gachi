@@ -376,7 +376,7 @@ async def on_message(message):
             msg = '<:_1:526447595157979136>'.format(message)
         else: return
         
-    elif 'хд' or ':д' in message.content:
+    elif ('хд' or ':д') in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 3)
