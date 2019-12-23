@@ -236,7 +236,7 @@ async def on_message(message):
       return
             
     elif message.content.startswith('--помогачи'):
-        msg = ('''Ебашь, моряк, такое:
+        msg = ('''Пока что не время умирать, ты все еще можешь:
 --брось (число) (число)
 --транс (текст)
 --суп (текст)
@@ -255,8 +255,7 @@ async def on_message(message):
 --радужно (текст)
 --скажи(число) (текст)
 --рандом (список)
---? (вопрос)
-лол, гг, кек, )))''').format(message)
+--? (вопрос)''').format(message)
         
     elif message.content.startswith('--брось'):
         nums = re.findall('\d+', message.content)
@@ -359,6 +358,14 @@ async def on_message(message):
         if tryit == 1:
             msg = 'Точно'.format(message)
         else: return
+
+    elif 'отчаян' in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            await client.send_file(message.channel, './despair.gif')
+        return
         
     elif 'высш' in message.content:
         slowpoke = random.randint(1, 10)
@@ -392,7 +399,9 @@ async def on_message(message):
                 msg = smiltot.format(message)  
                
     elif message.content.startswith('--'):
-        msg = 'пиши --помогачи, или сосни петуха'.format(message)
+        msg = ('''Я в отчаянии!
+Твоя неспособность правильно использовать команду, или даже написать "--помогачи" повергает меня в пучины отчаянья!
+Пойду умру.''').format(message)
         
     if '--ответь' in message.content:
       if message.author.id == '314363965125820417':
