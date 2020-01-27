@@ -326,6 +326,14 @@ async def on_message(message):
                 
     elif message.author == client.user:
         return
+
+    elif 'пасиб' in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            msg = 'Пожалуйста.'.format(message)
+        else: return
       
     elif 'лол' in message.content:
         slowpoke = random.randint(1, 10)
