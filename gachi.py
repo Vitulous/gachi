@@ -40,7 +40,9 @@ async def on_message(message):
             await client.send_message(message.channel, msg)
         return
       else: msg = 'иди нахуй'.format(message)
-
+    if message.author.id == '626493193713877002':
+      if message.content.startswith('--'):
+        return
     '''if message.author.id == '533708296956280832':
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -241,6 +243,7 @@ async def on_message(message):
 --транс (текст)
 --суп (текст)
 --ленни
+--джекпот
 --гачи
 --сексплз
 --отомсти
@@ -323,7 +326,10 @@ async def on_message(message):
     elif message.content.startswith('--?'):
         ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у Вита', 'Собери чакру и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
         msg = random.choice(ebanswer).format(message)
-                
+    
+    elif message.content.startswith('--джекпот'):
+        await client.send_file(message.channel, './jackpot.jpg')
+    
     elif message.author == client.user:
         return
 
@@ -349,14 +355,6 @@ async def on_message(message):
         tryit = random.randint(0, 3)
         if tryit == 1:
             msg = 'кек'.format(message)
-        else: return
-        
-    elif 'гг' in message.content:
-        slowpoke = random.randint(1, 10)
-        await asyncio.sleep(slowpoke)
-        tryit = random.randint(0, 3)
-        if tryit == 1:
-            msg = 'гг'.format(message)
         else: return
         
     elif 'точно' in message.content:
