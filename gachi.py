@@ -234,6 +234,7 @@ async def on_message(message):
       path = paths[0]
       path = path[imkey]
       path = ''.join(path)
+      await client.send_message(message.channel, path)
       await client.send_file(message.channel, path)
       return
             
