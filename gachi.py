@@ -209,7 +209,9 @@ async def on_message(message):
         return
         
     elif message.content.startswith('--ищи'):
-      if len(tmpsg) > 40:
+      await client.send_message(message.channel, 'иди нахуй, временно не работает')
+      return
+      '''if len(tmpsg) > 40:
         await client.send_message(message.channel, 'иди нахуй')
         return
       elif tmpsg[5] == '-':
@@ -231,12 +233,11 @@ async def on_message(message):
         imkey = tmpsg[6:].replace(",", " ")
       arguments = {"keywords":imkey,"limit":10} 
       paths = response.download(arguments)
-      '''path = paths[0]
+      path = paths[0]
       path = path[imkey]
-      path = ''.join(path)'''
-      await client.send_message(message.channel, paths)
-      await client.send_file(message.channel, paths)
-      return
+      path = ''.join(path)
+      await client.send_file(message.channel, path)
+      return'''
             
     elif message.content.startswith('--помогачи'):
         msg = ('''Пока что не время умирать, ты все еще можешь:
@@ -245,6 +246,7 @@ async def on_message(message):
 --суп (текст)
 --ленни
 --джекпот
+--эй
 --гачи
 --сексплз
 --отомсти
