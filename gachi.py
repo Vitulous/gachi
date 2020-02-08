@@ -231,11 +231,11 @@ async def on_message(message):
         imkey = tmpsg[6:].replace(",", " ")
       arguments = {"keywords":imkey,"limit":1} 
       paths = response.download(arguments)
-      path = paths[1]
+      '''path = paths[0]
       path = path[imkey]
-      path = ''.join(path)
-      await client.send_message(message.channel, path)
-      await client.send_file(message.channel, path)
+      path = ''.join(path)'''
+      await client.send_message(message.channel, paths)
+      await client.send_file(message.channel, paths)
       return
             
     elif message.content.startswith('--помогачи'):
@@ -309,12 +309,12 @@ async def on_message(message):
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
         
-    elif message.content.startswith('--братан'):
+    elif message.content.startswith('--эй'):
         noodlen = random.randint(1, 20)
         for i in range(noodlen):
             eybo = random.randint(0, 1)
             if eybo == 0:
-                msg = 'эй'.formate(message)
+                msg = 'эй'.format(message)
             else: msg = 'братан'.format(message)
             await client.send_message(message.channel, msg)
             await asyncio.sleep(1)
