@@ -209,9 +209,7 @@ async def on_message(message):
         return
         
     elif message.content.startswith('--ищи'):
-      await client.send_message(message.channel, 'иди нахуй, временно не работает')
-      return
-      '''if len(tmpsg) > 40:
+      if len(tmpsg) > 40:
         await client.send_message(message.channel, 'иди нахуй')
         return
       elif tmpsg[5] == '-':
@@ -237,7 +235,7 @@ async def on_message(message):
       path = path[imkey]
       path = ''.join(path)
       await client.send_file(message.channel, path)
-      return'''
+      return
             
     elif message.content.startswith('--помогачи'):
         msg = ('''Пока что не время умирать, ты все еще можешь:
