@@ -229,9 +229,10 @@ async def on_message(message):
           await client.send_message(message.channel, msg)
       else:
         imkey = tmpsg[6:].replace(",", " ")
-      arguments = {"keywords":imkey,"limit":1} 
+      arguments = {"keywords":imkey,"limit":10} 
       paths = response.download(arguments)
-      path = paths[0]
+      rimg = random.randint(1, 10)
+      path = paths[rimg]
       path = path[imkey]
       path = ''.join(path)
       await client.send_file(message.channel, path)
