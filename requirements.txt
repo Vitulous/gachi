@@ -7,4 +7,4 @@ opencv-python-headless
 moviepy
 ffmpeg
 youtube-dl==2019.7.2
-google_images_download
+git+git://github.com/Joeclinton1/google-images-download/tree/patch-1.git
