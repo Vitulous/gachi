@@ -231,7 +231,7 @@ async def on_message(message):
         imkey = tmpsg[6:].replace(",", " ")
       arguments = {"keywords":imkey,"limit":10} 
       paths = response.download(arguments)
-      rimg = random.randint(1, 10)
+      rimg = random.randint(0, 9)
       path = paths[rimg]
       path = path[imkey]
       path = ''.join(path)
