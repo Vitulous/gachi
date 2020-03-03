@@ -7,15 +7,11 @@ import cv2
 from googletrans import Translator
 from google_images_download import google_images_download 
 from moviepy.editor import *
-import youtube_dl
 
 translator = Translator()
 langs = ("af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "ny", "zh-cn", "zh-tw", "co", "hr", "cs", "da", "nl", "en", "eo", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hmn", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "km", "ko", "ku", "ky", "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mn", "my", "ne", "no", "ps", "fa", "pl", "pt", "pa", "ro", "ru", "sm", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "te", "th", "tr", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu", "fil", "he")
 
 response = google_images_download.googleimagesdownload()
-
-ydl = youtube_dl.YoutubeDL({'outtmpl': 'ytvid.mp4',
-                            'format': '135'})
 
 client = discord.Client()
 
@@ -148,16 +144,6 @@ async def on_message(message):
             uwu = ttext
         ttext = translator.translate(uwu, dest='ru').text
         msg = ttext.format(message)
-        
-    elif message.content.startswith('--сексплз'):
-        cap = cv2.VideoCapture('ravu.mp4')
-        raframe = random.randint(1, 144)
-        raframe = raframe * 1000
-        cap.set(cv2.CAP_PROP_POS_MSEC, raframe)
-        ret,frame = cap.read()            
-        cv2.imwrite("sekkusu.png", frame)
-        await client.send_file(message.channel, 'sekkusu.png')
-        return
     
     elif message.content.startswith('--мошимоши'):
         ranstart = random.randint(1, 140)
@@ -177,35 +163,6 @@ async def on_message(message):
         ret,frame = cap.read()            
         cv2.imwrite("revenge.png", frame)
         await client.send_file(message.channel, 'revenge.png')
-        return
-        
-    elif message.content.startswith('--гиф'):
-        if tmpsg[5] == '-':
-            ranminutes = int(tmpsg[6:8])
-            ranseconds = int(tmpsg[9:11])
-            if ranminutes > 99 or ranseconds > 60 or tmpsg[11] is not ' ':
-              await client.send_message(message.channel, 'иди нахуй')
-              return
-            ranstart = (ranminutes * 60) + ranseconds
-            ranend = ranstart + 3
-            turl = tmpsg[12:]
-        else: turl = tmpsg[6:]
-        yturl = 'https://www.youtube.com/watch?v=' + turl
-        givid = ydl.download([yturl])
-        clip = VideoFileClip('ytvid.mp4')
-        t_end = int(clip.duration)
-        if tmpsg[5] == '-' and ranstart >= t_end:
-            await client.send_message(message.channel, 'иди нахуй')
-            return
-        if tmpsg[5] is not '-':
-            ranend = random.randint(1, t_end)
-            ranstart = ranend - 3
-        clip = (clip
-        .subclip(ranstart, ranend)
-        .resize(0.5))
-        clip.write_gif("yt.gif", fps=20, program='imageio', opt='nq')
-        await client.send_file(message.channel, 'yt.gif')
-        os.remove('ytvid.mp4')
         return
         
     elif message.content.startswith('--ищи'):
@@ -246,18 +203,13 @@ async def on_message(message):
 --джекпот
 --эй
 --гачи
---сексплз
 --отомсти
---гиф (айди видео, только ютуб) или --гиф-хх-xx (айди), где хх-xx - время в минутах и секундах (например 00-01)
 --ищи (текст)
   --ищи-суп (текст)
   --ищи-транс(текст)
---сыграем
---какигратьто?
 --красиво (текст)
 --гениально (текст)
 --радужно (текст)
---скажи(число) (текст)
 --рандом (список)
 --? (вопрос)''').format(message)
         
@@ -275,36 +227,6 @@ async def on_message(message):
                 res += die
                 msg = 'Итого: ' + str(res).format(message)
             await client.send_message(message.channel, dice)
-            
-    elif message.content.startswith('--какигратьто?'):
-        msg = ('''Солнце бьет Луну, как Хаширама пиздил Мадару;
-Луна бьет Небо, как Мадара ебет Мито;
-Небо бьет Солнце, как Мито изменяет Хашираме до слез.''').format(message)
-        
-    elif message.content.startswith('--сыграем'):
-        await client.send_message(message.channel, 'Солнце, Небо, Луна')
-        await client.send_message(message.channel, 'Раз..')
-        await client.send_message(message.channel, 'Два..')
-        await client.send_message(message.channel, 'Три!')
-        chmsg = await client.wait_for_message(author=message.author)
-        rantypes = ('Солнце', 'Небо', 'Луна')
-        boch = random.choice(rantypes)
-        eny = 0
-        if boch == 'Солнце': eny = 1
-        elif boch == 'Небо': eny = 2
-        elif boch == 'Луна': eny = 3
-        ply = 0
-        chmsg.content = chmsg.content.lower()
-        if 'солнце' in chmsg.content: ply = 1
-        elif 'небо' in chmsg.content: ply = 2
-        elif 'луна' in chmsg.content: ply = 3
-        msg = (boch + '!').format(message)
-        await client.send_message(message.channel, msg)
-        await client.send_message(message.channel, '...')
-        if eny == 0 or ply == 0: msg = 'иди нахуй'.format(message)
-        elif eny == ply: msg = 'Ничья!'.format(message)
-        elif eny - ply == 1 or ply - eny == 2: msg = 'Я победил!'.format(message)
-        elif ply - eny == 1 or eny - ply == 2: msg = 'Я проиграл.. В этот раз.'.format(message)
             
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
@@ -382,14 +304,6 @@ async def on_message(message):
         if tryit == 1:
             await client.send_file(message.channel, './despair.gif')
         return
-        
-    elif 'высш' in message.content:
-        slowpoke = random.randint(1, 10)
-        await asyncio.sleep(slowpoke)
-        tryit = random.randint(0, 3)
-        if tryit == 1:
-            msg = ('<@' + str(message.author.id) + '>, те ебало набить додик?').format(message)
-        else: return
         
     elif ':_1:' in message.content:
         slowpoke = random.randint(1, 10)
