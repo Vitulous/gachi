@@ -173,7 +173,7 @@ async def on_message(message):
             msg = 'иди нахуй'.format(message)
         else:
             rank = pi[s]
-            if rank = '0': rank = '10'
+            if rank == '0': rank = '10'
             msg = (rank + '/10').format(message)
     
     elif message.content.startswith('--ищи'):
