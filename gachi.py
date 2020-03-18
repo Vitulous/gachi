@@ -359,7 +359,8 @@ async def on_message(message):
             asyncio.sleep(1)
             await client.send_message(message.channel, msg)
           return
-    await client.send_message(message.channel, msg)
+    if msg == None: return
+    else: await client.send_message(message.channel, msg)
     
 @client.event
 async def on_ready():
