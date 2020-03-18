@@ -19,6 +19,7 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    msg = None
     tmpsg = message.content
     message.content = message.content.lower()
     if message.content.startswith('--скажи'):
