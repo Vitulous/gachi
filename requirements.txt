@@ -8,3 +8,4 @@ moviepy
 ffmpeg
 youtube-dl==2019.7.2
 git+git://github.com/Joeclinton1/google-images-download.git
+git+git://github.com/Kylart/MalScraper.git
