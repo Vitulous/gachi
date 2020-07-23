@@ -1,5 +1,5 @@
-git+git://github.com/Rapptz/discord.py.git@async#egg=discord
 pip
+git+git://github.com/Rapptz/discord.py.git@async#egg=discord
 asyncio
 requests
 googletrans
