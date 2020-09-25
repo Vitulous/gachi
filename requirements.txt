@@ -1,5 +1,5 @@
 pip
-discord.py==1.2.5
+discord.py==1.2.4
 asyncio
 requests
 googletrans
