@@ -165,14 +165,14 @@ async def on_message(message):
           uwu = tmpsg[6:]
           for i in range (10):
               owo = random.choice(langs)
-              ttext = translator.translate(uwu, dest=owo).text
+              ttext = translator.translate(uwu, lang_tgt=owo)
               uwu = ttext
-          ttext = translator.translate(uwu, dest='ru').text
+          ttext = translator.translate(uwu, lang_tgt='ru')
           imkey = ttext.replace(",", " ")
           msg = ('||' + imkey + '||').format(message)
           await channel.send(msg)
         elif tmpsg[6:11] == 'транс':
-          imkey = translator.translate(tmpsg[11:], dest='en').text
+          imkey = translator.translate(tmpsg[11:], lang_tgt='en')
           msg = ('||' + imkey + '||').format(message)
           await channel.send(msg)
       else:
