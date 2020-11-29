@@ -2,7 +2,7 @@ pip
 discord.py
 asyncio
 requests
-git+git://github.com/lushan88a/google_trans_new.git
+google_trans_new
 opencv-python-headless
 moviepy
 ffmpeg
