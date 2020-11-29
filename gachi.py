@@ -19,6 +19,7 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    channel = client.get_channel()
     msg = None
     tmpsg = message.content
     message.content = message.content.lower()
@@ -251,7 +252,7 @@ async def on_message(message):
         msg = random.choice(ebanswer).format(message)
     
     elif message.content.startswith('--джекпот'):
-        await client.send_file(message.channel, './jackpot.jpg')
+        await channel.send(file=discord.File('./jackpot.jpg'))
     
     elif message.author == client.user:
         return
@@ -293,7 +294,7 @@ async def on_message(message):
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 3)
         if tryit == 1:
-            await client.send_file(message.channel, './despair.gif')
+            await channel.send(file=discord.File('./despair.gif'))
         return
         
     elif ':_1:' in message.content:
