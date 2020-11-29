@@ -113,18 +113,18 @@ async def on_message(message):
         if tmpsg[7] == '(' and tmpsg[10] == ')':
             langcheck = tmpsg[8] + tmpsg[9]
             if langcheck in langs:
-                ttext = translator.translate(tmpsg[12:], lang_tgt=langcheck).text
-            else: ttext = translator.translate(tmpsg[12:], lang_tgt='ru').text
-        else: ttext = translator.translate(tmpsg[8:], lang_tgt='ru').text
+                ttext = translator.translate(tmpsg[12:], lang_tgt=langcheck)
+            else: ttext = translator.translate(tmpsg[12:], lang_tgt='ru')
+        else: ttext = translator.translate(tmpsg[8:], lang_tgt='ru')
         msg = ttext.format(message)
         
     elif message.content.startswith('--суп'):
         uwu = tmpsg[6:]
         for i in range (10):
             owo = random.choice(langs)
-            ttext = translator.translate(uwu, lang_tgt=owo).text
+            ttext = translator.translate(uwu, lang_tgt=owo)
             uwu = ttext
-        ttext = translator.translate(uwu, lang_tgt='ru').text
+        ttext = translator.translate(uwu, lang_tgt='ru')
         msg = ttext.format(message)
     
     elif message.content.startswith('--мошимоши'):
