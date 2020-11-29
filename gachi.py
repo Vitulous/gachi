@@ -19,7 +19,7 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
-    channel = client.get_channel()
+    channel = client.get_channel(message.channel.id)
     msg = None
     tmpsg = message.content
     message.content = message.content.lower()
