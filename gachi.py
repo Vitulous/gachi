@@ -27,7 +27,7 @@ async def on_message(message):
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
         if numb >= 49:
-            await client.send_message(message.channel, 'иди нахуй')
+            await channel.send('иди нахуй')
             return
         elif numb > 9:
             s = tmpsg[9:]
@@ -36,34 +36,12 @@ async def on_message(message):
         for x in range(numb-1):
             await asyncio.sleep(1)
             msg = s.format(message)
-            await client.send_message(message.channel, msg)
+            await channel.send(msg)
         return
       else: msg = 'иди нахуй'.format(message)
     if message.author.id == '626493193713877002':
       if message.content.startswith('--'):
         return
-    '''if message.author.id == '533708296956280832':
-        slowpoke = random.randint(1, 10)
-        await asyncio.sleep(slowpoke)
-        tryit = random.randint(0, 1)
-        if len(message.attachments) > 0 or 'http' in message.content:
-            msg = '<@!224599912061468672>, угомони свою хуйню'.format(message)
-            await client.send_message(message.channel, msg)
-        elif '314363965125820417' in message.content:
-            if tryit == 1:
-                msg = 'И Д И  Н А Х У Й'.format(message)
-                await client.send_message(message.channel, msg)
-            else:
-                msg = 'сходи нахуй, пожалуйста'.format(message)
-                knt = await client.get_user_info(224599912061468672)
-                await client.send_message(knt, msg)
-        else:
-            if tryit == 1:
-                msg = '<@!533708296956280832>, иди нахуй'.format(message)
-                await client.send_message(message.channel, msg)
-            else:
-                await client.send_file(message.channel, './ucku.png')
-        return'''
     
     if message.content.startswith('--красиво'):
         s = ' '.join(tmpsg[10:])
@@ -111,10 +89,10 @@ async def on_message(message):
 ''' + mns + listmsg[rnx[i]] + '''
 ```''')           
                 msg = ' '.join(listmsg).format(message)
-                if tim == 0: remsg = await client.send_message(message.channel, msg)
+                if tim == 0: remsg = await channel.send(msg)
                 else:
                     await asyncio.sleep(1)
-                    await client.edit_message(remsg, msg)
+                    await message.edit(remsg, msg)
             return
         else: msg = 'иди нахуй'.format(message)
             
@@ -127,8 +105,8 @@ async def on_message(message):
             for il in range(endl):
                 nl += 1
                 msgl = (str(nl) + '. ' + listmsg[il]).format(message)
-                await client.send_message(message.channel, msgl)
-        else: await client.send_message(message.channel, 'иди нахуй')
+                await channel.send(msgl)
+        else: await channel.send('иди нахуй')
          
     elif message.content.startswith('--транс'):
         if tmpsg[7] == '(' and tmpsg[10] == ')':
@@ -155,7 +133,7 @@ async def on_message(message):
         .subclip(ranstart, ranend)
         .resize(0.5))
         clip.write_gif("sekkusu.gif")
-        await client.send_file(message.channel, 'sekkusu.gif')
+        await channel.send(file=discord.File('sekkusu.gif'))
         return
     
     elif message.content.startswith('--отомсти'):
@@ -165,7 +143,7 @@ async def on_message(message):
         cap.set(cv2.CAP_PROP_POS_MSEC, raframe)
         ret,frame = cap.read()            
         cv2.imwrite("revenge.png", frame)
-        await client.send_file(message.channel, 'revenge.png')
+        await channel.send(file=discord.File('revenge.png'))
         return
 
     elif message.content.startswith('--оцени'):
@@ -179,7 +157,7 @@ async def on_message(message):
     
     elif message.content.startswith('--ищи'):
       if len(tmpsg) > 100:
-        await client.send_message(message.channel, 'иди нахуй')
+        await channel.send('иди нахуй')
         return
       elif tmpsg[5] == '-':
         if tmpsg[6:9] == 'суп':
@@ -191,11 +169,11 @@ async def on_message(message):
           ttext = translator.translate(uwu, dest='ru').text
           imkey = ttext.replace(",", " ")
           msg = ('||' + imkey + '||').format(message)
-          await client.send_message(message.channel, msg)
+          await channel.send(msg)
         elif tmpsg[6:11] == 'транс':
           imkey = translator.translate(tmpsg[11:], dest='en').text
           msg = ('||' + imkey + '||').format(message)
-          await client.send_message(message.channel, msg)
+          await channel.send(msg)
       else:
         imkey = tmpsg[6:].replace(",", " ")
       arguments = {"keywords":imkey,"limit":1} 
@@ -203,7 +181,7 @@ async def on_message(message):
       path = paths[0]
       path = path[imkey]
       path = ''.join(path)
-      await client.send_file(message.channel, path)
+      await channel.send(file=discord.File(path))
       return
             
     elif message.content.startswith('--помогачи'):
@@ -239,7 +217,7 @@ async def on_message(message):
                 dice.append(die)
                 res += die
                 msg = 'Итого: ' + str(res).format(message)
-            await client.send_message(message.channel, dice)
+            await channel.send(dice)
             
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
@@ -251,9 +229,9 @@ async def on_message(message):
             if eybo == 0:
                 msg = 'эй'.format(message)
             else: msg = 'братан'.format(message)
-            await client.send_message(message.channel, msg)
+            await channel.send(msg)
             await asyncio.sleep(1)
-        await client.send_message(message.channel, 'пошли лапшички навернем')
+        await channel.send('пошли лапшички навернем')
         return
         
     elif message.content.startswith('--гачи'):
@@ -352,16 +330,16 @@ async def on_message(message):
         numb = re.search('\d+', message.content).group()
         numb = int(numb)
         if numb >= 49:
-            await client.send_message(message.channel, 'иди нахуй')
+            await channel.send('иди нахуй')
             return
         else:
           answer = numb
           for nigh in range(answer):
             asyncio.sleep(1)
-            await client.send_message(message.channel, msg)
+            await channel.send(msg)
           return
     if msg == None: return
-    else: await client.send_message(message.channel, msg)
+    else: await channel.send(msg)
     
 @client.event
 async def on_ready():
