@@ -223,7 +223,7 @@ async def on_message(message):
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
         
-    elif ('heh' or 'хех') in message.content
+    elif ('heh' or 'хех') in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 3)
