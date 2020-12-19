@@ -223,6 +223,15 @@ async def on_message(message):
     elif message.content.startswith('--ленни'):
         msg = '( ͡° ͜ʖ ͡°)'.format(message)
         
+    elif ('heh' or 'хех') in message.content
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            msg = ''.format(message)
+        else: return
+        
+        
     elif message.content.startswith('--эй'):
         noodlen = random.randint(1, 20)
         for i in range(noodlen):
@@ -253,6 +262,7 @@ async def on_message(message):
     
     elif message.content.startswith('--джекпот'):
         await channel.send(file=discord.File('./jackpot.jpg'))
+        return
     
     elif message.author == client.user:
         return
@@ -281,6 +291,15 @@ async def on_message(message):
             msg = 'кек'.format(message)
         else: return
         
+    elif ('heh' or 'хех') in message.content:
+        slowpoke = random.randint(1, 10)
+        await asyncio.sleep(slowpoke)
+        tryit = random.randint(0, 3)
+        if tryit == 1:
+            await channel.send(file=discord.File('./ehe.jpg'))
+            return
+        else: return
+        
     elif 'точно' in message.content:
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
@@ -296,15 +315,6 @@ async def on_message(message):
         if tryit == 1:
             await channel.send(file=discord.File('./despair.gif'))
         return
-        
-    elif ':_1:' in message.content:
-        slowpoke = random.randint(1, 10)
-        await asyncio.sleep(slowpoke)
-        tryit = random.randint(0, 3)
-        if tryit == 1:
-            msg = '<:_1:526447595157979136>'.format(message)
-        else: return
-        
         
     elif '))' in message.content:
         slowpoke = random.randint(1, 10)
