@@ -282,7 +282,7 @@ async def on_message(message):
             msg = 'кек'.format(message)
         else: return
         
-    elif ('heh' or 'хех') in message.content:
+    elif ('heh' in message.content) or ('хех' in message.content):
         slowpoke = random.randint(1, 10)
         await asyncio.sleep(slowpoke)
         tryit = random.randint(0, 3)
