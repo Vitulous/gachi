@@ -221,16 +221,7 @@ async def on_message(message):
             await channel.send(dice)
             
     elif message.content.startswith('--ленни'):
-        msg = '( ͡° ͜ʖ ͡°)'.format(message)
-        
-    elif ('heh' or 'хех') in message.content:
-        slowpoke = random.randint(1, 10)
-        await asyncio.sleep(slowpoke)
-        tryit = random.randint(0, 3)
-        if tryit == 1:
-            msg = ''.format(message)
-        else: return
-        
+        msg = '( ͡° ͜ʖ ͡°)'.format(message)      
         
     elif message.content.startswith('--эй'):
         noodlen = random.randint(1, 20)
