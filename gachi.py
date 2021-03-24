@@ -93,7 +93,7 @@ async def on_message(message):
                 if tim == 0: remsg = await channel.send(msg)
                 else:
                     await asyncio.sleep(1)
-                    await message.edit(remsg, msg)
+                    await edit_message(remsg, msg)
             return
         else: msg = 'иди нахуй'.format(message)
             
