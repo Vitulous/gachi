@@ -164,13 +164,9 @@ async def on_message(message):
         imkey = tmpsg[6:].replace(",", " ")
         arguments = {"keywords":imkey,"limit":1} 
         paths = response.download(arguments)
-        print(paths)
         path = paths[0]
-        print(path)
         path = path[imkey]
-        print(path)
         path = ''.join(path)
-        print(path)
         await channel.send(file=discord.File(path))
         return
             
