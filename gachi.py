@@ -160,30 +160,19 @@ async def on_message(message):
       if len(tmpsg) > 100:
         await channel.send('иди нахуй')
         return
-      elif tmpsg[5] == '-':
-        if tmpsg[6:9] == 'суп':
-          uwu = tmpsg[6:]
-          for i in range (10):
-              owo = random.choice(langs)
-              ttext = translator.translate(uwu, lang_tgt=owo)
-              uwu = ttext
-          ttext = translator.translate(uwu, lang_tgt='ru')
-          imkey = ttext.replace(",", " ")
-          msg = ('||' + imkey + '||').format(message)
-          await channel.send(msg)
-        elif tmpsg[6:11] == 'транс':
-          imkey = translator.translate(tmpsg[11:], lang_tgt='en')
-          msg = ('||' + imkey + '||').format(message)
-          await channel.send(msg)
       else:
         imkey = tmpsg[6:].replace(",", " ")
-      arguments = {"keywords":imkey,"limit":1} 
-      paths = response.download(arguments)
-      path = paths[0]
-      path = path[imkey]
-      path = ''.join(path)
-      await channel.send(file=discord.File(path))
-      return
+        arguments = {"keywords":imkey,"limit":1} 
+        paths = response.download(arguments)
+        print(paths)
+        path = paths[0]
+        print(path)
+        path = path[imkey]
+        print(path)
+        path = ''.join(path)
+        print(path)
+        await channel.send(file=discord.File(path))
+        return
             
     elif message.content.startswith('--помогачи'):
         msg = ('''Пока что не время умирать, ты все еще можешь:
@@ -197,8 +186,6 @@ async def on_message(message):
 --отомсти
 --оцени (текст)
 --ищи (текст)
-  --ищи-суп (текст)
-  --ищи-транс(текст)
 --красиво (текст)
 --гениально (текст)
 --радужно (текст)
